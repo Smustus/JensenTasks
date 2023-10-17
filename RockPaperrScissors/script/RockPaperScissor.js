@@ -4,6 +4,7 @@ const loseCounter = document.querySelector('.loseCounter');
 
 const resultMsg = document.querySelector('.resultMsg');
 
+const buttonSection = document.querySelector('.buttonSection');
 const rockBtn = document.querySelector('.rockBtn');
 const paperBtn = document.querySelector('.paperBtn');
 const scissorsBtn = document.querySelector('.scissorsBtn');
@@ -15,42 +16,42 @@ let winCount = 0;
 let drawCount = 0;
 let loseCount = 0;
 
-rockBtn.addEventListener('click', () => {
-  playGame('Rock');
-});
-
-paperBtn.addEventListener('click', () => {
-  playGame('Paper');
-});
-
-scissorsBtn.addEventListener('click', () => {
-  playGame('Scissors');
-});
-
-resetBtn.addEventListener('click', () => {
-  resetScore();
-});
+buttonSection.addEventListener('click', (e) => {
+  if (e.target.classList.contains('rockBtn')) {
+    playGame('Rock');
+  } else if (e.target.classList.contains('paperBtn')) {
+    playGame('Paper');
+  } else if (e.target.classList.contains('scissorsBtn')) {
+    playGame('Scissors');
+  } else if (e.target.classList.contains('resetBtn')) {
+    resetScore();
+}});
 
 function resetScore(){
-  resetQuestion.innerHTML = `<div>Would you like to reset the score? <button class="resetYes">Yes</button> <button class="resetNo">No</button></div>`
+  resetQuestion.innerHTML = 
+    `<div>
+      Would you like to reset the score? 
+      <button class="resetYes">Yes</button> 
+      <button class="resetNo">No</button>
+    </div>`
   
   const resetScoreYes = document.querySelector('.resetYes');
+
   resetScoreYes.addEventListener('click', () => {
     winCount = 0;
     drawCount = 0;
     loseCount = 0;
-    winCounter.textContent = 'Wins: 0';
-    drawCounter.textContent = 'Draws: 0';
-    loseCounter.textContent = 'Losses: 0';
+    scoreUpdate()
     resultMsg.textContent = 'Pick a move then';
     resetQuestion.innerHTML = '';
-});
+  });
 
   const resetScoreNo = document.querySelector('.resetNo');
+
   resetScoreNo.addEventListener('click', () => {
     resetQuestion.innerHTML = '';
   });
-  }
+}
 
 function computerMove(){
   let computerMove = Math.ceil(Math.random()*9);
@@ -66,44 +67,32 @@ function computerMove(){
 }
 
 function playGame(playerMove){
-  let compMove = computerMove();
+  const compMove = computerMove();
   console.log(compMove);
   if(compMove === playerMove){
     resultMsg.textContent = 'It´s a draw!'
     drawCount++
-    drawCounter.textContent = `Draws: ${drawCount}`;
-    } else if (compMove === 'Rock' && playerMove === 'Paper'){
+    } else if ((compMove === 'Rock' && playerMove === 'Paper') || (compMove === 'Paper' && playerMove === 'Scissors') || (compMove === 'Scissors' && playerMove === 'Rock')){
       resultMsg.textContent = 'You win!'
       winCount++
-      winCounter.textContent = `Wins: ${winCount}`;
-    } else if (compMove === 'Rock' && playerMove === 'Scissors'){
+    } else {
       resultMsg.textContent = 'You lose! nub'
       loseCount++
-      loseCounter.textContent = `Losses: ${loseCount}`;
-    } else if (compMove === 'Paper' && playerMove === 'Rock'){
-      resultMsg.textContent = 'You lose! nub'
-      loseCount++
-      loseCounter.textContent = `Losses: ${loseCount}`;
-    } else if (compMove === 'Paper' && playerMove === 'Scissors'){
-      resultMsg.textContent = 'You win!'
-      winCount++
-      winCounter.textContent = `Wins: ${winCount}`;
-    } else if (compMove === 'Scissors' && playerMove === 'Rock'){
-      resultMsg.textContent = 'You win!'
-      winCount++
-      winCounter.textContent = `Wins: ${winCount}`;
-    } else if (compMove === 'Scissors' && playerMove === 'Paper'){
-      resultMsg.textContent = 'You lose! nub'
-      loseCount++
-      loseCounter.textContent = `Losses: ${loseCount}`;
-    } 
   }
+  scoreUpdate()
+}
 
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'r'){
+function scoreUpdate(){
+  winCounter.textContent = `Wins: ${winCount}`;
+  loseCounter.textContent = `Losses: ${loseCount}`;
+  drawCounter.textContent = `Draws: ${drawCount}`;
+}
+
+document.body.addEventListener('keydown', (e) => {
+  if (e.key === 'r'){
     playGame('Rock')
-    } else if (event.key === 'p'){
+    } else if (e.key === 'p'){
         playGame('Paper');
-    } else if (event.key === 's') {
+    } else if (e.key === 's') {
         playGame('Scissors');
 }});
