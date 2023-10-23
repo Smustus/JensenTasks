@@ -1,0 +1,77 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-width: 350px;
+  height: 100vh;
+  font-family: 'Indie Flower', 'Amatic SC', sans-serif, cursive;
+  display:flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.displayNone {
+  display: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 70%;
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+.storyTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+figure {
+  height: 60%;
+  width: 80%;
+}
+
+img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.btnContainer, .resetContainer {
+  display: flex;
+  justify-content: center;
+ /*  margin: auto; */
+  /* padding: 5%; */
+  width: 100%;
+  height: 250px;
+}
+
+.btnContainer {
+  align-items: center;
+  margin: 2%;
+}
+
+.btnContainer button, .resetContainer button {
+  width: 100px;
+  height: 100px;
+  margin: 0 5%;
+  padding: 1%;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 3px 5px rgb(129, 129, 129);
+  text-align: center;
+}
+
+.continueBtn-option-1, .continueBtn-option-2, .continueBtn-option-3, .continueBtn-option-4, .goBackBtn, .resetBtn, .backBtn1 {
+  display: none;
+}
