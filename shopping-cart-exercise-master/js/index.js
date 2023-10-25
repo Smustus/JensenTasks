@@ -1,5 +1,4 @@
 let shoppingCart = [];
-/* let cartProducts = ''; */
 
 document.querySelector('#open-cart').addEventListener('click', () => {
   document.querySelector('#cart').classList.toggle('hide');
@@ -41,7 +40,7 @@ function listProductsInCart() {
       let product = event.target.parentNode.getAttribute('data-product');
       if(!shoppingCart.includes(product)){
         shoppingCart.push(product);
-      } else return alert('Item already in cart');
+      } else return alert('Item is already in the cart');
       updateCart();
     });
   } 
