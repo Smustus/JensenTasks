@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-width: 350px;
+  height: 100vh;
+  font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+/* CONTAINER STYLES */
+main {
+  background-color: rgb(107, 107, 107);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.gameContainer {
+  background-color: rgb(146, 146, 146);
+  width: 90%;
+  height: 80%;
+  padding: 1.5%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 25px;
+  border: 1px solid hsla(0, 0%, 42%, 0.719);
+  box-shadow: 0px 2px 5px rgb(83, 83, 83);
+  overflow: scroll;
+}
+
+.infoContainer {
+  margin: 0.4%;
+  font-size: 2rem;
+  color: rgb(26, 26, 26, 0.932);
+  height: 110px;
+  width: 90%;
+  text-align: center;
+}
+
+.btnContainer {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-height: 10%;
+  min-height: 100px;
+}
+
+/* TEXT STYLES */
+.gameTitle  {
+  font-size: 3rem;
+  margin: 0.2%;
+  color: rgba(22, 22, 22, 0.932);
+}
+
+.infoText {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 0.2%;
+}
+
+.infoTextImportant {
+  font-size: 1.5rem;
+  color: rgb(235, 235, 235);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/* BUTTON STYLES */
+button {
+  border: none;
+  width: 86px;
+  height: 50px;
+  border-radius: 15px;
+  padding: 5px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0px 3px 5px hsla(0, 0%, 0%, 0.5);
+}
+
+button:hover {
+  box-shadow: 0px 5px 5px hsla(0, 0%, 0%, 0.6);
+  color: hsla(0, 0%, 0%, 0.712);
+}
+
+button:active {
+  font-size: 0.9rem;
+  width: 87px;
+  height: 51px;
+}
+
+.genBtn {
+  background-color: aquamarine;
+}
+
+.shuffleBtn {
+  background-color: cadetblue;
+  margin: 5% 5% 5% 5%;
+}
+
+.sortBtn {
+  background-color: chartreuse;
+}
+
+.cardAmount, .resetTime {
+  min-width: 100px;
+  height: 30%;
+  margin-right: 1%;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 3px 5px hsla(0, 0%, 0%, 0.5);
+}
+
+/* CARD STYLES */
+.card {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 0.6%;
+  box-shadow: 1px 3px 1px rgb(94, 94, 94);
+  animation: cardAppear 0.5s ease-out;
+  transition: transform 1s ease-in;
+}
+
+.activeCard {
+  transform: rotateY(180deg);
+}
+
+.activeCardBackground {
+  background-image: url(playCard2.png);
+  background-size: 110%;
+  background-position: center;
+}
+
+@keyframes cardAppear {
+  from {
+    transform: translateY(-150%) translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+}
+
+.suit {
+  font-size: 2rem;
+}
+
+.titleTop {
+  margin: 2% 0% 0% 4%;
+}
+
+.suitTop {
+  margin: 0% 0% 0% 3%;
+}
+
+.mid {
+  font-size: 4rem;
+  align-self: center;
+  margin: auto;
+}
+
+.bottom {
+  align-self: flex-end;
+  rotate: 0.5turn;
+}
+
+.titleBot {
+  margin: 0 4.5% 3% 0;
+}
+
+.suitBot {
+  margin: 0 3% 0% 0%;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1470px) {
+  .infoText {
+    font-size: 1.25rem;
+  }
+
+  .infoContainer {
+    height: 120px;
+  }
+
+  .card {    
+    min-width: 200px;
+    height: 250px;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+  
+  .suit {
+    font-size: 1.5rem;
+  }
+  
+  .mid {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .infoContainer {
+    height: 130px;
+  }
+
+  .card {    
+    border-radius: 6px;
+    min-width: 132px;
+    height: 165px;
+    margin: 2%;
+  }
+
+  .cardTitle {
+    font-size: 0.72rem;
+  }
+  
+  .suit {
+    font-size: 1.1rem;
+  }
+  
+  .mid {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 876px) {
+  .gameTitle {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .infoContainer {
+    height: 130px;
+  }
+
+  .infoText {
+    font-size: 1.15rem;
+  }
+
+  .card {    
+    min-width: 120px;
+    height: 150px;
+  }
+
+  .cardTitle {
+    font-size: 0.65rem;
+  }
+  
+  .suit {
+    font-size: 1rem;
+  }
+  
+  .mid {
+    font-size: 2rem;
+  }
+
+}
+
+@media screen and (max-width: 530px) {
+  .gameTitle {
+    font-size: 2rem;
+  }
+
+  .infoContainer {
+    height: 180px;
+  }
+
+  .infoText {
+    font-size: 0.82rem;
+    margin: 2%;
+  }
+
+  .btnContainer {
+    flex-direction: column;
+    min-height: 190px;
+  }
+
+  .genBtn {
+    margin-top: 4%;
+  }
+
+  .card {    
+    border-radius: 3px;
+    min-width: 60px;
+    height: 75px;
+    margin: 3%;
+  }
+
+  .cardTitle {
+    font-size: 0.33rem;
+  }
+  
+  .suit {
+    font-size: 0.5rem;
+  }
+  
+  .mid {
+    font-size: 1rem;
+  }
+}

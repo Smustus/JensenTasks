@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="card.css">
+  <title>Card game</title>
+</head>
+<body>
+
+  <main class="main">
+    
+    <h1 class="gameTitle">Card Turner Simulator</h1>
+    <p class="infoText">Fulfil your dream of becoming a card turning master!</p>
+    <section class="gameContainer"></section>
+    <section class="infoContainer">
+      <p class="infoText">Enter a <span class="bold">Time</span> to determine how long it takes for every card to reset, then enter an integer between <span class="bold">1-52</span> to generate the corresponding amount of random cards from a deck</p>
+      <p class="infoText">These cards can then be shuffled around and/or sorted according to suit and rank according to preference</p>
+      <p class="infoText infoTextImportant">Your goal is to turn all the cards around before they reset!</p>
+      <p class="infoText">Great game if you're a reptile, Have fun!</p>
+    </section>
+    <section class="btnContainer">
+      <label for="resetTime">Time:&nbsp</label>
+      <input type="number" id="resetTime" class="resetTime" placeholder="Time in seconds">
+      <label for="cardAmount">Cards:&nbsp</label>
+      <input type="number" id="cardAmount" class="cardAmount" placeholder="Enter amount">
+      <button class="genBtn">Gen. cards</button>
+      <button class="shuffleBtn">Shuffle</button>
+      <button class="sortBtn">Sort</button>
+    </section>
+    <p class="copyRight">©2023</p>
+  </main>
+  
+  <script src="card.js"></script>
+</body>
+</html>
