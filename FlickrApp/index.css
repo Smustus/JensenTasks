@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+body {
+  width: 100vw;
+  min-width: 350px;
+  height: 100vh;
+  background-color: rgb(219, 224, 215);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(219, 224, 215);
+}
+
+.searchSection {
+  margin: 1%;
+}
+
+.searchSection_input {
+  height: 48px;
+  width: 120px;
+  padding: 2%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 1px 1px 5px black;
+}
+
+.searchSection_btn {
+  height: 48px;
+  width: 80px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+  color: rgb(97, 97, 97);
+}
+
+.searchSection_btn:hover {
+  color: rgb(97, 97, 97);
+}
+
+.imgSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1%;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.imgSection img {
+  width: clamp(250px, 250px + 10vw, 400px);
+  margin: 1%;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+}
+
+.imgSection img:hover {
+  border: 2px solid rgb(56, 56, 56);
+  box-shadow: 1px 5px 5px rgb(114, 114, 114);
+}
+
+.navSection {
+  width: 90%;
+  height: fit-content;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1.2rem;
+  background-color: rgb(170, 170, 170);
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.navElement {
+  padding: 0.4%;
+  color: rgb(0, 0, 0);
+}
+
+.navElement:hover {
+  color: rgb(243, 243, 243);
+  text-decoration: underline;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 50%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.modalContent {
+  display: block;
+  position: absolute;
+  max-width: 80%;
+  max-height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
