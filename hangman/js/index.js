@@ -49,6 +49,11 @@ function generateWordPage(word){
         container.classList.add('letterGuess', 'hidden');
         container.innerHTML = word[i];
         spellingSection.append(container);
+
+        const letterUnderscore = document.createElement('div');
+        letterUnderscore.classList.add('letterUnderscore');
+        letterUnderscore.innerHTML = '.'
+        spellingSection.append(letterUnderscore);
     }
 }
 
@@ -141,6 +146,8 @@ function updatePage(){
         if (correctGuess.includes(randomWordSplit[i])) {
             const letterContainers = document.querySelectorAll('.letterGuess');
             letterContainers[i].classList.remove('hidden');
+            const letterUnderscore = document.querySelectorAll('.letterUnderscore');
+            letterUnderscore[i].classList.add('hidden');
         }
     }
 }

@@ -18,7 +18,7 @@ body {
 h1 {
     margin: 0;
     width: 100%;
-    height: 74px;
+    height: 60px;
     text-align: center;
 }
 
@@ -49,6 +49,14 @@ h1 {
 .wrapper figure.arms     svg #arms      { opacity: 1; }
 .wrapper figure.legs     svg #legs      { opacity: 1; }
 
+.letterUnderscore {
+    font-family: 'Eater', cursive;
+    font-size: 2.4em;
+    letter-spacing: 8px;
+    color: #fa6701;
+    animation: flicker 5s linear infinite;
+}
+
 .letterGuess {
     font-family: 'Eater', cursive;
     transform: translateY(-16px);
@@ -59,10 +67,11 @@ h1 {
 
 .hidden {
     visibility: hidden;
+    display: none;
 }
 
 .spellingSection {
-    height: 50px;
+    height: 60px;
     width: 70%;
     display: flex;
     justify-content: space-evenly;
