@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="swing.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <section class="searchPostContainer">
+      <h2 class="addPostTitle">Search post</h2>
+      <label for="name">Search username:</label>
+      <input type="text" class="nameInput" id="name" placeholder="Enter username">
+      <button class="searchNoteBtn">Search</button>
+    </section>
+
+    <section class="addPostContainer">
+      <h2 class="addPostTitle">Add post</h2>
+      <label for="user">Username:</label>
+      <input type="text" class="inputUser" id="user" placeholder="Enter username">
+      <label for="title">Title:</label>
+      <input type="text" class="inputTitle" id="title" placeholder="Enter note title"> 
+      <label for="note">Note:</label>
+      <input type="text" class="inputNote" id="note" placeholder="Enter note">
+      <button class="postNoteBtn">Post</button>
+      <p class="postText hidden">Post added</p>
+    </section>
+    
+    <section class="noteContainer"></section>
+    
+  </div>
+
+  <script src="swing.js"></script>
+</body>
+</html>
