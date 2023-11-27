@@ -13,7 +13,7 @@ let updatedContent = '';
 
 BASE_URL = 'https://o6wl0z7avc.execute-api.eu-north-1.amazonaws.com';
 
-
+//--------------------------------------------------------
 searchNoteBtn.addEventListener('click', () => {
   fetchNotes(nameInput.value);
 });
@@ -21,7 +21,8 @@ searchNoteBtn.addEventListener('click', () => {
 postNoteBtn.addEventListener('click', () => {
   generateNote();
 });
-
+//--------------------------------------------------------
+//Generate a note, post it and fetch it
 async function generateNote(){
   const userValue = noteUser.value;
   const titleValue = noteTitle.value;
@@ -37,14 +38,16 @@ async function generateNote(){
   await fetchNotes(nameInput.value)
 
   setTimeout(() => {
+    postText.textContent = 'Post added'
     postText.classList.remove('hidden');
-  }, 300);
+  }, 100);
   
   setTimeout(() => {
     postText.classList.add('hidden');
-  }, 3000);
+  }, 2000);
 }
-
+//--------------------------------------------------------
+//Post the note to the API
 async function postNote(note){
   try {
     const response = await fetch(`${BASE_URL}/api/notes`, {
@@ -58,7 +61,8 @@ async function postNote(note){
     console.log(error);
   }
 }
-
+//--------------------------------------------------------
+//Fetch notes from the API
 async function fetchNotes(userName){
   try {
     const response = await fetch(`${BASE_URL}/api/notes/${userName}`);
@@ -69,7 +73,8 @@ async function fetchNotes(userName){
     console.log(error);
   }
 }
-
+//--------------------------------------------------------
+//Generate the corresponding HTML for the note
 function generateNoteHTML(data){
   const notesObj = data;
   console.log(notesObj);
@@ -80,15 +85,15 @@ function generateNoteHTML(data){
     const noteDiv = document.createElement('div');
 
     noteDiv.innerHTML = `
-    <section class="noteSection">
-    <h4>Author: ${note.username.toUpperCase()}</h4>
-    <p>Title: ${note.title}</p>
-    <p class="${note.id}">${note.note}</p>
-    </section>
-    <section class="btnSection">
-    <button class="changeBtn">Change</button>
-    <button class="removeBtn">Remove</button>
-    </section>`;
+      <section class="noteSection">
+      <h4>Author: ${note.username.toUpperCase()}</h4>
+      <p>Title: ${note.title}</p>
+      <p class="${note.id}">${note.note}</p>
+      </section>
+      <section class="btnSection">
+      <button class="changeBtn">Change</button>
+      <button class="removeBtn">Remove</button>
+      </section>`;
     
     const changeBtn = noteDiv.querySelector('.changeBtn');
     const removeBtn = noteDiv.querySelector('.removeBtn');
@@ -110,7 +115,8 @@ function generateNoteHTML(data){
     noteContainer.appendChild(noteDiv);
   }
 }
-
+//--------------------------------------------------------
+//Modification of a current note in the API
 async function changeNote(noteId){
   const updatedNote = {
     note: updatedContent,
@@ -126,8 +132,18 @@ async function changeNote(noteId){
   } catch (error) {
     console.log(error);
   }
-}
 
+  setTimeout(() => {
+    postText.textContent = 'Post changed'
+    postText.classList.remove('hidden');
+  }, 0);
+  
+  setTimeout(() => {
+    postText.classList.add('hidden');
+  }, 2000);
+}
+//--------------------------------------------------------
+//Delete a note in the API
 async function deleteNote(noteId){
   try {
    const response = await fetch(`${BASE_URL}/api/notes/${noteId}`, {
@@ -137,5 +153,13 @@ async function deleteNote(noteId){
   } catch (error) {
     console.log(error);
   }
+
+  setTimeout(() => {
+    postText.textContent = 'Post removed'
+    postText.classList.remove('hidden');
+  }, 0);
   
+  setTimeout(() => {
+    postText.classList.add('hidden');
+  }, 2000);
 }

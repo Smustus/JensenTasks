@@ -10,7 +10,7 @@ body {
   width: 100vw;
   min-width: 350px;
   height: 100vh;
-  font-family:Verdana, Tahoma, sans-serif;
+  font-family:Verdana, sans-serif;
   background-color: rgb(204, 210, 243);
 }
 
@@ -22,33 +22,44 @@ body {
   padding: 2%;
 }
 
+.inputContainer {
+  background-color: rgb(181, 190, 238);
+  border-radius: 15px;
+  border: 1px solid hsla(0, 0%, 0%, 0.5);
+  margin: 1% 1% 1% 1%;
+  box-shadow: 1px 1px 5px hsla(0, 0%, 0%, 0.7);;
+}
+
 .searchPostContainer {
   border-bottom: 1px solid black;
+  margin: 1%;
 }
 
 .addPostContainer {
-  padding: 15px 0 5px 0;
+  margin: 0.5% 1% 0 1%;
 }
 
 .noteContainer {
   background-color: rgb(145, 154, 202);
-  border: 1px solid black;
+  border: 1px solid hsla(0, 0%, 0%, 0.5);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   padding: 0.6%;
+  box-shadow: 1px 1px 5px hsla(0, 0%, 0%, 0.7);
 }
 
 .noteContainer div{
   background-color: rgb(179, 184, 211);
   color: rgb(26, 22, 22);
-  border: 1px solid black;
+  border: 1px solid hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
   display: flex;
   flex-direction: row;
   padding: 0.6%;
   margin: 0.4%;
+  box-shadow: 1px 1px 5px hsla(0, 0%, 0%, 0.7);
 }
 
 .noteContainer div .noteSection{
@@ -81,14 +92,16 @@ p {
 
 .postText {
   display: inline-block;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 /* Buttons */
 button {
   width: 120px;
   height: 25px;
-  border: 1px solid hsla(0, 0%, 0%, 0.2);
-  border-radius: 2px;
+  border: 1px solid hsla(0, 0%, 0%, 0.4);
+  border-radius: 5px;
   margin: 3px;
   font-weight: 600;
 }
@@ -97,6 +110,11 @@ button:hover {
   background-color: hsla(0, 0%, 0%, 0.144);
   border: none;
   box-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.3);;
+}
+
+button:active {
+  width: 119px;
+  height: 24px;
 }
 
 .searchNoteBtn, .postNoteBtn {
