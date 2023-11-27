@@ -37,14 +37,7 @@ async function generateNote(){
   await postNote(note);
   await fetchNotes(nameInput.value)
 
-  setTimeout(() => {
-    postText.textContent = 'Post added'
-    postText.classList.remove('hidden');
-  }, 100);
-  
-  setTimeout(() => {
-    postText.classList.add('hidden');
-  }, 2000);
+  showAction('Post added', 2000)
 }
 //--------------------------------------------------------
 //Post the note to the API
@@ -143,14 +136,7 @@ async function changeNote(noteId){
     console.log(error);
   }
 
-  setTimeout(() => {
-    postText.textContent = 'Post changed'
-    postText.classList.remove('hidden');
-  }, 0);
-  
-  setTimeout(() => {
-    postText.classList.add('hidden');
-  }, 2000);
+  showAction('Post changed', 2000);
 }
 //--------------------------------------------------------
 //Delete a note in the API
@@ -164,12 +150,18 @@ async function deleteNote(noteId){
     console.log(error);
   }
 
+  showAction('Post removed', 2000)
+}
+
+//--------------------------------------------------------
+//Display text with action taken
+function showAction(text, delay){
   setTimeout(() => {
-    postText.textContent = 'Post removed'
+    postText.textContent = text;
     postText.classList.remove('hidden');
   }, 0);
   
   setTimeout(() => {
     postText.classList.add('hidden');
-  }, 2000);
+  }, delay);
 }
