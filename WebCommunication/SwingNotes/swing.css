@@ -139,7 +139,7 @@ input {
 }
 
 .inputNote {
-  width: 20vw;
+  width: 50%;
   min-width: 200px;
 }
 
@@ -149,4 +149,67 @@ label {
 
 .hidden {
   display: none;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+  /* Texts */
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  /* Containers */
+  .noteContainer div {
+    flex-wrap: wrap;
+    border-radius: 12px;
+  }
+
+   /* Input and labels */
+  input {
+    width: 100px;
+    height: 20px;
+  }
+
+  label {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  /* Texts */
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1.0rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  /* Buttons */
+  button {
+    width: 100px;
+    height: 20px;
+    margin: 2px;
+  }
+
+  button:active {
+    width: 99px;
+    height: 19px;
+  }
+
+  .searchNoteBtn, .postNoteBtn {
+    height: 20px;
+  }  
 }

@@ -43,7 +43,7 @@ async function generateNote(){
 //Post the note to the API
 async function postNote(note){
   try {
-    const response = await fetch(`${BASE_URL}/api/notes`, {
+    await fetch(`${BASE_URL}/api/notes`, {
       method: "POST",
       body: JSON.stringify(note), 
       headers: {
@@ -125,7 +125,7 @@ async function changeNote(noteId){
     note: updatedContent,
   };
   try {
-    const response = await fetch(`${BASE_URL}/api/notes/${noteId}`, {
+    await fetch(`${BASE_URL}/api/notes/${noteId}`, {
       method: "PUT",
       body: JSON.stringify(updatedNote), 
       headers: {
@@ -142,7 +142,7 @@ async function changeNote(noteId){
 //Delete a note in the API
 async function deleteNote(noteId){
   try {
-   const response = await fetch(`${BASE_URL}/api/notes/${noteId}`, {
+   await fetch(`${BASE_URL}/api/notes/${noteId}`, {
       method: 'DELETE'
     }); 
     fetchNotes(nameInput.value);
