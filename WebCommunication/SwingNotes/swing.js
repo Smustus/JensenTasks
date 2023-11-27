@@ -98,16 +98,26 @@ function generateNoteHTML(data){
     const changeBtn = noteDiv.querySelector('.changeBtn');
     const removeBtn = noteDiv.querySelector('.removeBtn');
 
+    //Change note button
     changeBtn.addEventListener('click', () => {
       const noteContentP = document.querySelector(`.${note.id}`);
-      updatedContent = prompt('Enter new note:', note.note);
-
-      if (updatedContent) {
-        noteContentP.textContent = updatedContent;
-        changeNote(note.id);
-      }
+      noteContentP.innerHTML = `<input type="text" class="inputNote" id="note" placeholder="${note.note}">`;
+      const input = noteContentP.querySelector('.inputNote');
+      
+      input.addEventListener('keyup', (e) => {
+        if(e.key === 'Enter'){
+          updatedContent = input.value;
+          if (!updatedContent) {
+            noteContentP.textContent = note.note;
+          } else {
+            console.log(updatedContent)
+            noteContentP.textContent = updatedContent;
+            changeNote(note.id);
+          }
+        }
+      });
     });
-
+    //Remove note button
     removeBtn.addEventListener('click', () => {
       deleteNote(note.id);
     });
