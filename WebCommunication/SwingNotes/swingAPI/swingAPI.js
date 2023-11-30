@@ -15,8 +15,7 @@ const BASE_URL = 'https://o6wl0z7avc.execute-api.eu-north-1.amazonaws.com';
 
 //--------------------------------------------------------
 searchNoteBtn.addEventListener('click', () => {
-  /* fetchNotes(nameInput.value); */
-  getUsernameData('notes');
+  fetchNotes(nameInput.value);
 });
 
 postNoteBtn.addEventListener('click', () => {
