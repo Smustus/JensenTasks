@@ -25,35 +25,35 @@ Det ska även på din sida gå och se highscorelistan.
 
   // Import the functions you need from the SDKs you need
   
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-  import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-  import { firebaseConfig } from "./firebaseConfig.js"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { firebaseConfig } from "./firebaseConfig.js"
   
 
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
 
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  async function getData(db, dbName) {
-    const data = collection(db, dbName);
-    const dataObj = await getDocs(data);
-    const dataArr = [];
-    dataObj.forEach((item) => {
-        const data = item.data(); // Hämtar ut vårt objekt från vår collection
-        console.log(data);
-        dataArr.push(data);
-    });
-    return dataArr;
-  }
-
-  async function addData(db, dataCollection, newData) {
-    await addDoc(collection(db, dataCollection), newData)
+async function getData(db, dbName) {
+  const data = collection(db, dbName);
+  const dataObj = await getDocs(data);
+  const dataArr = [];
+  dataObj.forEach((item) => {
+      const data = item.data(); // Hämtar ut vårt objekt från vår collection
+      /* console.log(data); */
+      dataArr.push(data);
+  });
+  return dataArr;
 }
 
-  
-  getData(db, 'Scientists');
+async function addData(db, dataCollection, newData) {
+  await addDoc(collection(db, dataCollection), newData)
+}
 
-  export {db, getData, addData};
+
+getData(db, 'Scientists');
+
+export {db, getData, addData};

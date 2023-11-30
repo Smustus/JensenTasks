@@ -1,5 +1,8 @@
 import {getData, addData, db} from "../firebase.js";
 
+const highscoreContainer = document.querySelector('.highscoreContainer');
+const highscoreDiv = document.querySelector('.highscoreDiv'); 
+
 const winCounter = document.querySelector('.winCounter');
 const drawCounter = document.querySelector('.drawCounter');
 const loseCounter = document.querySelector('.loseCounter');
@@ -10,6 +13,8 @@ const losses = document.querySelector('.losses');
 const resultMsg = document.querySelector('.resultMsg');
 
 const buttonSection = document.querySelector('.buttonSection');
+const modal = document.querySelector('[data-modal]');
+const closeModalBtn = document.querySelector('.closeModalBtn'); 
 
 const resetQuestion = document.querySelector('.resetQuestion');
 const nameInput = document.querySelector('.nameInput');
@@ -48,7 +53,13 @@ buttonSection.addEventListener('click', (e) => {
     resetScoreQ();
   } else if (e.target.classList.contains('highscoreBtn')){
     showHighscore(db);
+    highscoreDiv.textContent = '';
+    modal.showModal();
   }
+});
+
+closeModalBtn.addEventListener('click', () =>  {
+  modal.close();
 });
 
 //---------------------------------------
@@ -147,7 +158,7 @@ function scoreUpdate(){
   draws.textContent = `Match draws: ${matchScore.matchDrawCount}`;
   console.log(score);
   console.log(highscore);
-  checkWinCondition()
+  checkWinCondition();
 }
 
 //---------------------------------------
@@ -194,7 +205,6 @@ async function showHighscore(db){
         userStats[username].lose += lose;
         userStats[username].draw += draw;
       } else {
-        
         userStats[username] = {
           win,
           lose,
@@ -202,8 +212,16 @@ async function showHighscore(db){
         };
       }
     });
-    console.log(userStats);
-    return userStats;
+   console.log(userStats);
+
+    for (let name in userStats) {
+      const statsDiv = document.createElement('div');
+      highscoreDiv.append(statsDiv);
+      const { win, lose, draw } = userStats[name];
+      name = name[0].toUpperCase() + name.substring(1);
+      statsDiv.textContent = (`${name}'s score: Wins - ${win}, Losses - ${lose}, Draws - ${draw}`);
+    }
 }
 showHighscore(db)
+
 
