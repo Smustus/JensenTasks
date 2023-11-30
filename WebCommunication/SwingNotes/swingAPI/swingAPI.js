@@ -1,7 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc, query, where, updateDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-import { firebaseConfig } from "./firebase.js";
-
 const nameInput = document.querySelector('.nameInput');
 const searchNoteBtn = document.querySelector('.searchNoteBtn');
 
@@ -15,13 +11,11 @@ const noteContainer = document.querySelector('.noteContainer');
 
 let updatedContent = '';
 
-  // Initialize Firebase DB
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
+const BASE_URL = 'https://o6wl0z7avc.execute-api.eu-north-1.amazonaws.com';
 
 //--------------------------------------------------------
 searchNoteBtn.addEventListener('click', () => {
+  /* fetchNotes(nameInput.value); */
   getUsernameData('notes');
 });
 
@@ -29,22 +23,11 @@ postNoteBtn.addEventListener('click', () => {
   generateNote();
 });
 
-nameInput.addEventListener('keyup', (e) => {
-  if(e.key === 'Enter'){
-    getUsernameData('notes');
-  }
-});
- 
-noteUser.addEventListener('keyup', (e) => {
-  if(e.key === 'Enter'){
-    generateNote();
-  }
-});
 //--------------------------------------------------------
-//Generate a note, post it and fetch it from the DB
+//Generate a note, post it and fetch it
 
 async function generateNote(){
-  const userValue = noteUser.value.toLowerCase();
+  const userValue = noteUser.value;
   const titleValue = noteTitle.value;
   const inputValue = noteInput.value;
 
@@ -54,56 +37,60 @@ async function generateNote(){
     note: inputValue
   }
 
-  await postNote('notes', note);
-  await getUsernameData('notes');
+  await postNote(note);
+  await fetchNotes(nameInput.value)
 
   showAction('Post added', 2000)
 }
 
 //--------------------------------------------------------
-//Post the note to DB
+//Post the note to the API
 
-async function postNote(dataCollection, note){
-  note.username = document.querySelector('.nameInput').value.toLowerCase();
-  await addDoc(collection(db, dataCollection), note);
-}
-//--------------------------------------------------------
-//Fetch notes from the DB
-
-async function getUsernameData(dataCollection) {
-
-  const username = document.querySelector('.nameInput').value.toLowerCase();
-  const usernameQuery = query(collection(db, dataCollection), where('username', '==', username));
-  const userData = await getDocs(usernameQuery);
-  const dataArr = [];
-  userData.forEach((data) => {
-      console.log(data.id);
-      dataArr.push({
-        id: data.id,
-        note: data.data()
+async function postNote(note){
+  try {
+    await fetch(`${BASE_URL}/api/notes`, {
+      method: "POST",
+      body: JSON.stringify(note), 
+      headers: {
+        'Content-Type': 'application/json' 
+        }
       });
-  });
-  generateNoteHTML(dataArr)
+  } catch (error) {
+    console.log(error);
+  }
 }
-console.log(getUsernameData('notes'));
+
+//--------------------------------------------------------
+//Fetch notes from the API
+
+async function fetchNotes(userName){
+  try {
+    const response = await fetch(`${BASE_URL}/api/notes/${userName}`);
+    const data = await response.json();
+    console.log(data);
+    generateNoteHTML(data); 
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 //--------------------------------------------------------
 //Generate the corresponding HTML for the note
 
 function generateNoteHTML(data){
+  const notesObj = data;
+  console.log(notesObj);
 
   noteContainer.innerHTML = '';
 
-  for(const { id, note } of data){
-    console.log(id);
-    console.log(note);
+  for(const note of notesObj.notes){
     const noteDiv = document.createElement('div');
 
     noteDiv.innerHTML = `
       <section class="noteSection">
-      <h4>Author: ${note.username[0].toUpperCase() + note.username.substring(1)}</h4>
+      <h4>Author: ${note.username.toUpperCase()}</h4>
       <p>Title: ${note.title}</p>
-      <p class="${id}">${note.note}</p>
+      <p class="${note.id}">${note.note}</p>
       </section>
       <section class="btnSection">
       <button class="changeBtn">Change</button>
@@ -115,7 +102,7 @@ function generateNoteHTML(data){
 
     //Change note button
     changeBtn.addEventListener('click', () => {
-      const noteContentP = document.querySelector(`.${id}`);
+      const noteContentP = document.querySelector(`.${note.id}`);
       noteContentP.innerHTML = `<input type="text" class="inputNote" id="note" placeholder="${note.note}">`;
       const input = noteContentP.querySelector('.inputNote');
       
@@ -127,42 +114,60 @@ function generateNoteHTML(data){
           } else {
             console.log(updatedContent)
             noteContentP.textContent = updatedContent;
-            changeNote('notes', id);
+            changeNote(note.id);
           }
         }
       });
     });
     //Remove note button
     removeBtn.addEventListener('click', () => {
-      deleteNote('notes', id);
+      deleteNote(note.id);
     });
 
     noteContainer.appendChild(noteDiv);
   }
 }
-//--------------------------------------------------------
-//Modification of a current note in the DB
 
-async function changeNote(dataCollection, noteID){
+//--------------------------------------------------------
+//Modification of a current note in the API
+
+async function changeNote(noteId){
   const updatedNote = {
     note: updatedContent,
   };
-  await updateDoc(doc(db, dataCollection, noteID), updatedNote);
-  await getUsernameData('notes');
+  try {
+    await fetch(`${BASE_URL}/api/notes/${noteId}`, {
+      method: "PUT",
+      body: JSON.stringify(updatedNote), 
+      headers: {
+        'Content-Type': 'application/json' 
+      }
+    }); 
+  } catch (error) {
+    console.log(error);
+  }
+
   showAction('Post changed', 2000);
 }
-//--------------------------------------------------------
-//Delete a note in the DB
 
-async function deleteNote(dataCollection, noteID){
-  await deleteDoc(doc(db, dataCollection, noteID));
-  await getUsernameData('notes');
+//--------------------------------------------------------
+//Delete a note in the API
+
+async function deleteNote(noteId){
+  try {
+   await fetch(`${BASE_URL}/api/notes/${noteId}`, {
+      method: 'DELETE'
+    }); 
+    fetchNotes(nameInput.value);
+  } catch (error) {
+    console.log(error);
+  }
+
   showAction('Post removed', 2000)
 }
 
 //--------------------------------------------------------
 //Display text with action taken
-
 function showAction(text, delay){
   setTimeout(() => {
     postText.textContent = text;
