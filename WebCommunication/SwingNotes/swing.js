@@ -61,7 +61,7 @@ async function fetchNotes(userName){
     const response = await fetch(`${BASE_URL}/api/notes/${userName}`);
     const data = await response.json();
     console.log(data);
-    generateNoteHTML(data)
+    generateNoteHTML(data); 
   } catch (error) {
     console.log(error);
   }
