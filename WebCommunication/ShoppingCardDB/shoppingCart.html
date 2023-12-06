@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="shoppingCart.css">
+  <title>Shopping Cart FirebaseDB</title>
+</head>
+<body>
+
+  <header class="header">
+    <section class="header__cartSection">
+      <p>Cart: </p>
+      <div class="cartSection__cartCount">0</div>
+    </section>
+    <div class="cartSection__prodContainer hidden">
+      <div class="prodContainer__products"></div>
+      <div class="prodContainer__price"></div>
+      <button class="orderBtn">Confirm order</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1 class="main__title">Products</h1>
+    <section class="main__productContainer"></section>
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
