@@ -1,5 +1,11 @@
-/* import { getDocs, collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-import { db } from "./firebase.js"; */
+import { getDocs, collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { db } from "./main.js";
+
+const cartCount = document.querySelector('.cartSection__cartCount');
+
+const cartProducts = document.querySelector('.prodContainer__products');
+const totalPriceContainer = document.querySelector('.prodContainer__price');
+
 
 //Products in cart template
 class CartProductUI {
@@ -76,4 +82,4 @@ async function removeFromCart(dataCollection, id){
   }
 }
 
-/* export { CartProductUI, addToCart, generateCartHTML, removeFromCart }; */
+export { CartProductUI, addToCart, generateCartHTML, removeFromCart };

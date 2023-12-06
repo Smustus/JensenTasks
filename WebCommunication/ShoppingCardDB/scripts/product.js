@@ -1,6 +1,16 @@
-// product.js
-/* import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-import { db } from "./firebase.js"; */
+import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { db } from "./main.js";
+import { addToCart } from "./cart.js";
+
+const productContainer = document.querySelector('.main__productContainer');
+
+//PRODUCT PAGE RELATED
+  //Generate product HTML 
+  function generateProductHTML(dataArr) {
+    for(const { id, product } of dataArr){
+      new ProductUI(id, product.title, product.description, product.price, productContainer);
+    }
+  }
 
 //Product template
 class ProductUI {
@@ -54,4 +64,4 @@ async function getProductsData(dataCollection){
   }
 }
 
-/* export { ProductUI, getProductsData }; */
+export { getProductsData };

@@ -17,14 +17,12 @@ Lägg till en knapp så att man kan "lägga en beställning" denna beställning 
 */
   
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-  import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-  import { firebaseConfig } from "./firebase.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+  import { firebaseConfig } from "./firebaseConfig.js";
 
-  /* import { getProductsData, ProductUI } from "./product.js";
-  import { addToCart, generateCartHTML, removeFromCart } from "./cart.js";
-  import { makeOrder } from "./order.js"; */
-
-  // Your web app's Firebase configuration below
+  import { getProductsData } from "./product.js";
+  import { generateCartHTML } from "./cart.js";
+  import { makeOrder } from "./orders.js";
 
 
   // Initialize Firebase
@@ -32,14 +30,10 @@ Lägg till en knapp så att man kan "lägga en beställning" denna beställning 
   const db = getFirestore(app);
 
   const cartSection = document.querySelector('.header__cartSection');
-  const cartCount = document.querySelector('.cartSection__cartCount');
 
   const cartContainer = document.querySelector('.cartSection__prodContainer');
-  const cartProducts = document.querySelector('.prodContainer__products');
-  const totalPriceContainer = document.querySelector('.prodContainer__price');
+  
   const orderBtn = document.querySelector('.orderBtn');
-
-  const productContainer = document.querySelector('.main__productContainer');
 
 //----------------------------------------------------------------------------
   //Event listeners 
@@ -47,13 +41,14 @@ Lägg till en knapp så att man kan "lägga en beställning" denna beställning 
     cartContainer.classList.toggle('hidden');
   });  
   
-  orderBtn.addEventListener('click', () => {
-    makeOrder();
+  orderBtn.addEventListener('click', async () => {
+    await makeOrder();
+    generateCartHTML();
   });
 
 //----------------------------------------------------------------------------
   //Fetch the product data from the DB
-  async function getProductsData(dataCollection){
+ /*  async function getProductsData(dataCollection){
     try {
       const response = await getDocs(collection(db, dataCollection));
       const dataArr = [];
@@ -70,10 +65,10 @@ Lägg till en knapp så att man kan "lägga en beställning" denna beställning 
     } catch (error) {
       console.log(error);
     }
-  }
+  } */
 
 //----------------------------------------------------------------------------
-  //Send the cart products to the order collection in the DB and then empty the current cart
+/*   //Send the cart products to the order collection in the DB and then empty the current cart
   async function makeOrder() {
     try {
       const response = await getDocs(collection(db, 'cart')); //Take item collection in cart
@@ -99,11 +94,12 @@ Lägg till en knapp så att man kan "lägga en beställning" denna beställning 
     } catch (error) {
       console.log(error);
     }
-  }
+  } */
 
 //----------------------------------------------------------------------------
 //PRODUCT PAGE RELATED
   //Generate product HTML 
+  /* 
   function generateProductHTML(dataArr) {
     for(const { id, product } of dataArr){
       new ProductUI(id, product.title, product.description, product.price, productContainer);
@@ -140,12 +136,12 @@ Lägg till en knapp så att man kan "lägga en beställning" denna beställning 
         this.buyBtn
       );
     }
-  }
+  } */
 
   //----------------------------------------------------------------------------
   //CART RELATED
   
-  //Add respective product to the cart collection in the DB
+  /* //Add respective product to the cart collection in the DB
   async function addToCart(title, description, price, dataCollection){
     const product = {
         title,
@@ -219,9 +215,11 @@ async function generateCartHTML() {
     } catch (error) {
       console.log(error);
     }
-  }
+  } */
 
 //----------------------------------------------------------------------------
 
 getProductsData('products');
 generateCartHTML()
+
+export { db };
