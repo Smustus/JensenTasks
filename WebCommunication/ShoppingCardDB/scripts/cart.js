@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------
 import { getDocs, collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import { db } from "./main.js";
 
@@ -5,8 +6,7 @@ const cartCount = document.querySelector('.cartSection__cartCount');
 
 const cartProducts = document.querySelector('.prodContainer__products');
 const totalPriceContainer = document.querySelector('.prodContainer__price');
-
-
+//----------------------------------------------------------------------------
 //Products in cart template
 class CartProductUI {
   constructor(id, title, price, parent) {
@@ -34,7 +34,7 @@ class CartProductUI {
     );
   }
 }
-
+//----------------------------------------------------------------------------
 //Add respective product to the cart collection in the DB
 async function addToCart(title, description, price, dataCollection){
   const product = {
@@ -45,7 +45,7 @@ async function addToCart(title, description, price, dataCollection){
   await addDoc(collection(db, dataCollection), product);
   generateCartHTML()
 }
-
+//----------------------------------------------------------------------------
 //Generate the HTML for the products in the cart
 async function generateCartHTML() {
   try {
@@ -71,7 +71,7 @@ async function generateCartHTML() {
     console.log(error);
   }
 }
-
+//----------------------------------------------------------------------------
 //Remove an item from the cart collection in the DB
 async function removeFromCart(dataCollection, id){
   try {
@@ -81,5 +81,5 @@ async function removeFromCart(dataCollection, id){
     console.log(error);
   }
 }
-
-export { CartProductUI, addToCart, generateCartHTML, removeFromCart };
+//----------------------------------------------------------------------------
+export { addToCart, generateCartHTML };

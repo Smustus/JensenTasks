@@ -1,6 +1,7 @@
+//----------------------------------------------------------------------------
 import { getDocs, collection, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import { db } from "./main.js";
-
+//----------------------------------------------------------------------------
 async function makeOrder() {
   try {
     const response = await getDocs(collection(db, 'cart')); //Take item collection in cart
@@ -27,5 +28,5 @@ async function makeOrder() {
     console.log(error);
   }
 }
-
+//----------------------------------------------------------------------------
 export { makeOrder };
