@@ -23,7 +23,9 @@ class ProductUI {
 
     this.product.addEventListener('click', () => {
       window.location.href = 'singleProduct.html';
-      singleProductSection.textContent = '';
+      /* singleProductSection.textContent = ''; */
+      productSection.textContent = '';
+      console.log(title);
       new SingleProductUI(image, title, price, size, description, 'Add to cart');
     });
 
@@ -64,7 +66,8 @@ class SingleProductUI {
       this.cartBtn
     );
 
-    singleProductSection.append(this.product);
+    /* singleProductSection.append(this.product); */
+    productSection.append(this.product);
   }
 }
 

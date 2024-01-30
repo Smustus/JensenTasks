@@ -37,7 +37,6 @@ function generateProducts(array){
     new ProductUI(array[i].image, array[i].title, array[i].price, i, array[i].size, array[i].description);
   }
 }
-
-generateProducts(products);
+/* generateProducts(products); */
 
 export { productSection, singleProductSection };
