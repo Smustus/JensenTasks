@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(44, 44, 44);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1, h2, h3, h4, p, a {
+  line-height: 1.5;
+  color: black
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.wrapper {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 5px rgb(77, 77, 77);
+  padding: 3%;
+
+  figure {
+    margin: 1% 1.5%;
+  }
+
+  p {
+    margin: 1% 1.5%;
+  }
+}
+
+.adaImage img {
+  width: 100%;
+}
