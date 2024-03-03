@@ -8,7 +8,8 @@ function App() {
   return (
     <>
       <Header />
-      <BillForm />
+      {/* <BillForm /> */}
+      <BillFormHook />
     </>
   )
 }

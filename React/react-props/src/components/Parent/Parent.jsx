@@ -3,7 +3,6 @@ import ProfileCard from "../ProfileCard/ProfileCard";
 
 
 function Parent(props){
-  console.log(props);
 
   return(
     <>
@@ -12,6 +11,4 @@ function Parent(props){
   );
 }
 
-
-/* export default {user, Parent}; */
 export default Parent;

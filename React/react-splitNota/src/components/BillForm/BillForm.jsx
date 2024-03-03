@@ -21,7 +21,7 @@ function BillForm(){
     tip = replaceComa(tip);
     console.log(tip);
 
-    const calc = (Number(sum * 100)) * (1 + Number(tip / 100)) / Number(friendAmount) /100;
+    const calc = (Number(sum) * 100) * (1 + (Number(tip) / 100)) / Number(friendAmount) /100;
     console.log(calc + ' kr var');
     return calc;
 
@@ -37,7 +37,7 @@ function BillForm(){
           </fieldset>
 
           <fieldset>
-            <label htmlFor="amount">Antal vänner</label>
+            <label htmlFor="amount">Antal&nbsp;vänner</label>
             <input type="text" id="amount" className='form__friendAmount' />
           </fieldset>
 
