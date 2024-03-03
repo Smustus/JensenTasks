@@ -1,12 +1,15 @@
-  import React, { useState } from 'react';
+  import React, { useState, useEffect } from 'react';
   
   function UseStatePrac(){
 
     const [name, setName] = useState('');
     const [age, setAge] = useState(0);
     const [isEmployed, setIsEmployed] = useState(false);
+    const [character, setCharacter] = useState({});
+    const [charListArr, setCharListArr] = useState([]);
 
     const updateName = (e) => {
+      console.log(e.target.value);
       setName(e.target.value);
     }
 
@@ -15,19 +18,36 @@
     }
 
     const updateAge = (inc) => {
-      console.log(age);
-      if(age < 0){
-        setAge(0)
-      } else if(inc !== 0){
+      if (age + inc >= 0) {
         setAge(age + inc);
-      } else if(inc === 0){
-        setAge(inc)
       }
     }
 
     const toggleEmployed = () => {
       setIsEmployed(!isEmployed);
     }
+
+    const addChar = () => {
+      setCharacter({
+        name,
+        age,
+        isEmployed
+      });
+    }
+
+    useEffect(() => {
+      console.log(character);
+      if (Object.keys(character).length !== 0) {
+      setCharListArr(prevChars => [...prevChars, character]);
+      }
+    }, [character]);
+
+    const generateCharList = () => {
+      console.log(charListArr);
+      return charListArr.map((char, index) => {
+        return <li key={index}>{char.name}, Age: {char.age}, Employed: {char.isEmployed ? 'Yes' : 'No'}</li>
+        });
+      }
 
     return(
       <>
@@ -38,14 +58,14 @@
             <p>
               Name: {name}
             </p>
-            <input className="nameInput" placeholder="Enter a name" /* value={name}  */onChange={updateName}></input>
+            <input className="nameInput" placeholder="Enter a name" /* value={name}  */onChange={e => updateName(e)}></input>
             <br></br>
             <button onClick={clickEvent}>Set name</button>
 
             <p>
               Age: {age}
             </p>
-            <input className="ageInput" placeholder="Enter age" value={age} onChange={(e) => setAge(Number(e.target.value))}></input>
+            <input className="ageInput" placeholder="Enter age" onChange={(e) => setAge(e.target.value)}></input>
             <button onClick={() => updateAge(+1)}>Increase age by 1</button>
             <button onClick={() => updateAge(-1)}>Decrease age by 1</button>
             <button onClick={() => updateAge(0)}>Reset age</button>
@@ -57,12 +77,12 @@
 
           </section>
 
-          <button className='createChar-Btn'>Create</button>
+          <button className='createChar-Btn' onClick={addChar}>Create</button>
 
           <section className="createdCharsSection">
-            <ol className="charList">
-              <li>Item 1</li>
-            </ol>
+            <ul className="charList">
+              {generateCharList()}
+            </ul>
           </section>
 
         </section>

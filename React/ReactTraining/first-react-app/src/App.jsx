@@ -1,9 +1,10 @@
-import Header from './header.jsx';
-import Food from './food.jsx';
-import Footer from './footer.jsx';
-import Card from './card.jsx';
-import UseStatePrac from './useStatePrac.jsx';
-import ObjPrac from './useStateObjPrac.jsx';
+import Header from './assets/components/header.jsx';
+import Food from './assets/components/food.jsx';
+import Footer from './assets/components/footer.jsx';
+import Card from './assets/components/card.jsx';
+import UseStatePrac from './assets/components/useStatePrac.jsx';
+import ObjPrac from './assets/components/useStateObjPrac.jsx';
+import List from './assets/components/list.jsx';
 
 function App() {
   return(
@@ -16,6 +17,8 @@ function App() {
       <Card />
     </section>
     <Food />
+    <hr/>
+    <List />
     <hr/>
     <UseStatePrac />
     <hr/>

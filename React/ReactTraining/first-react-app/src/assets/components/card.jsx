@@ -1,4 +1,4 @@
-import hamsterPic from './assets/pictures/goldenHamster.jpg'
+import hamsterPic from '../pictures/goldenHamster.jpg'
 import PropTypes from 'prop-types';
 
 function Card(prop){
