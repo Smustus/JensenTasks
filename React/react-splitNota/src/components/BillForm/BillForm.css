@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 350px;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-bottom: 1.5px solid black;
+  margin-bottom: 25%;
+}
+
+input {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 1% 1%;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+label {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.smallText {
+  font-size: 0.8rem;
+  margin-left: 2%;
+}
+
+.billFormContainer {
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(75, 45, 109);
+  border: 3px solid rgb(75, 45, 109);
+  border-radius: 6px;
+  padding: 12%;
+  box-shadow: -7px 7px 1px rgba(75, 45, 109, 0.2);
+}
+
+.form {
+  width: 100%;
+}
+
+.form__submitBtn {
+  width: 100%;
+  min-height: 60px;
+  font-weight: 600;
+  background-color: rgb(75, 45, 109);
+  border: none;
+  border-radius: 0px;
+  box-shadow: -4px 4px 1px rgba(75, 45, 109, 0.2);
+}

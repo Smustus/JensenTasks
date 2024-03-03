@@ -36,40 +36,46 @@ input, select {
   min-width: 350px;
   border-radius: 6px;
   overflow: hidden;
-}
 
-.formContainer__title {
-  grid-column: 1 / span 4;
-  background-color: rgba(206, 206, 206, 1);
-  font-size: 1.8rem;
-  padding: 3% 0%;
-}
-
-.formContainer__tFromBox, .formContainer__tToBox {
-  p{
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 0.6rem;
+  .formContainer__title {
+    grid-column: 1 / span 4;
+    background-color: rgba(206, 206, 206, 1);
+    font-size: 1.8rem;
+    padding: 3% 0%;
   }
-}
+  
+  .formContainer__tFromBox, .formContainer__tToBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-.formContainer__tToBox {
-  grid-column: 3 / span 2;
-  padding: 5% 25%;
-  background-color: rgba(236, 236, 236, 1)
-}
+    p{
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 0.5rem;
+    }
+  }
 
+  .formContainer__tFromBox {
+    padding: 9% 15% 3% 20%;
+    grid-column: 1 / span 2;
+    background-color: rgba(226, 226, 226, 1);
+    position: relative;
 
-.formContainer__tFromBox {
-  grid-column: 1 / span 2;
-  padding: 5% 20%;
-  background-color: rgba(226, 226, 226, 1)
+    .fromContainer__arrowSymbol {
+      position: absolute;
+      top: 13px;
+      right: -10px;
+      transform: scale(150%);
+    }
+  }
+  
+  .formContainer__tToBox {
+    padding: 9% 15% 3% 25%;
+    grid-column: 3 / span 2;
+    background-color: rgba(236, 236, 236, 1);
 
-}
-
-.formContainer__tToBox {
-  grid-column: 3 / span 2;
-  padding: 5% 25%;
-  background-color: rgba(236, 236, 236, 1)
+  }  
+  
 }
 
 .form {
@@ -77,76 +83,82 @@ input, select {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 6%;
-}
 
-.form__radioField {
-  grid-column: 1 / span 2;
-}
-
-.form__radioFieldLeft {
-  align-items: center;
-  width: 55%;
-}
-
-.form__radioFieldRight {
-  align-items: center;
-  margin-right: 8%;
-}
-
-.form__classInput {
-  min-height: 20px;
-}
-
-.form__amountAndTitle {
-  grid-column: 1 / span 2;
-  justify-content: space-between;
-}
-
-.form__amount {
-  margin-right: 8%;
-  width: 51%;
+  .form__radioField {
+    grid-column: 1 / span 2;
   
-  input, label {
-    width: 100%;
+    .form__radioFieldLeft {
+      align-items: center;
+      width: 55%;
+    }
+    
+    .form__radioFieldRight {
+      align-items: center;
+      margin-right: 8%;
+    }
+  
+    #class {
+      margin-right: 5px;
+    }
+  
+    .form__classInput, .form__classInput1st, .form__classInput2nd {
+      min-height: 20px;
+    }
   }
+  
+  .form__amountAndTitle {
+    grid-column: 1 / span 2;
+    justify-content: space-between;
+  
+    .form__amount {
+      margin-right: 8%;
+      width: 51%;
+      
+      input, label {
+        width: 100%;
+      }
+    }
+    
+    .form__title {
+      width: 50%;
+    }
+  }
+  
+  .form__name {
+    grid-column: 1 / span 2;
+  }
+  
+  .form__lastname {
+    grid-column: 1 / span 2;
+  }
+  
+  .form__acceptTerms {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+  
+    #terms {
+      border-radius: 4px;
+      border: none;
+      min-height: 30px;
+     }
+  }
+  
+  .form__submitBtn {
+    grid-column: 1 / span 2;
+    width: 100%;
+    background-color: black;
+    color: white;
+    min-height: 56px;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 2%;
+  }
+
 }
 
-.form__title {
-  width: 50%;
-}
-
-.form__name {
-  grid-column: 1 / span 2;
-}
-
-.form__lastname {
-  grid-column: 1 / span 2;
-}
-
-.form__acceptTerms {
-  grid-column: 1 / span 2;
-  display: flex;
-  align-items: center;
-}
-
-#terms {
- border-radius: 4px;
- border: none;
- min-height: 30px;
-}
-
-.form__submitBtn {
-  grid-column: 1 / span 2;
-  width: 100%;
-  background-color: black;
-  color: white;
-  min-height: 56px;
-  border-radius: 4px;
-  border: none;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-top: 2%;
-}
 
 
 

@@ -1,36 +1,33 @@
+import React, { useState } from 'react';
 import './Form.css';
 
-function Form(){
-    
+function FormHooks(){
+  
+  const [formData, setFormData] = useState({
+    class: '', 
+    tickets: '1',
+    title: 'Mr.',
+    sname: '',
+    lname: '',
+    terms: false
+  });
+  
     // Event handler for form input changes
-    const handleFormInput = (e) => {
-      e.preventDefault();
+    const handleInputChange = (e) => {
+      const { id, value, type, checked } = e.target;
+      setFormData(prevData => ({
+        ...prevData,
+        [id]: type === 'checkbox' ? checked : value
+      }));
+      
+    };
 
-      const classInput2 = document.querySelector('.form__classInput2nd');
-      const classInput1 = document.querySelector('.form__classInput1st');
-      const classInput = classInput2.checked ? classInput2.value : classInput1.value;
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+ 
 
-      const tickets = document.querySelector('.form__ticketInput').value;
-      console.log(tickets);
-      const title = document.querySelector('.form__titelInput').value;
-      console.log(title);
-      const sname = document.querySelector('.form__snameInput').value;
-      console.log(sname);
-      const lname = document.querySelector('.form__lnameInput').value;
-      console.log(lname);
-      const terms = document.querySelector('#terms').checked;
-      console.log(terms);
-
-      const formData = {
-        class: classInput,
-        tickets,
-        title,
-        sname,
-        lname,
-        terms
-      }
-      console.log(formData);
-      }
 
   return(
     <>
@@ -47,15 +44,15 @@ function Form(){
           <p className="formContainer__tToTime">15.00</p>
         </div>
 
-        <form action="" className="form">
+        <form action="" onSubmit={handleFormSubmit} className="form">
 
           <fieldset className="form__radioField inputContainer">
             <fieldset className="form__radioFieldLeft inputContainer">
-              <input type="radio" className="form__classInput2nd" id="class" value="2ndClass" name="class" ></input>
+              <input type="radio" className="form__classInput" id="class" value="2ndClass" name="class" onChange={handleInputChange}></input>
               <label htmlFor="" className="form__pickClassLabel">2:a&nbsp;klass</label>
             </fieldset>
             <fieldset className="form__radioFieldRight inputContainer">
-              <input type="radio" className="form__classInput1st" id="class" value="1stClass" name="class" ></input>
+              <input type="radio" className="form__classInput" id="class" value="1stClass" name="class" onChange={handleInputChange}></input>
               <label htmlFor="" className="form__pickClassLabel">1:a&nbsp;klass</label>
             </fieldset>
           </fieldset>
@@ -63,7 +60,7 @@ function Form(){
           <fieldset className="form__amountAndTitle inputContainer">
             <fieldset className="form__amount inputContainer vertical">
               <label htmlFor="tickets">Antal&nbsp;biljetter</label>
-              <select className="form__ticketInput" id="tickets" >
+              <select className="form__ticketInput" id="tickets" onChange={handleInputChange}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -77,7 +74,7 @@ function Form(){
 
             <fieldset className="form__title inputContainer vertical">
               <label htmlFor="title">Titel</label>
-              <select className="form__titelInput" id="title" >
+              <select className="form__titelInput" id="title" onChange={handleInputChange}>
                 <option value="Mr">Mr.</option>
                 <option value="Mrs">Mrs.</option>
                 <option value="Victim">Victim</option>
@@ -88,20 +85,20 @@ function Form(){
           
           <fieldset className="form__name inputContainer vertical ">
             <label htmlFor="sname">Förnamn</label>
-            <input type="text" className="form__snameInput" id="sname" />
+            <input type="text" className="form__nameInput" id="sname" onChange={handleInputChange}/>
           </fieldset>
 
           <fieldset className="form__lastname inputContainer vertical">
             <label htmlFor="lname">Efternamn</label>
-            <input type="text" className="form__lnameInput" id="lname" />
+            <input type="text" className="form__nameInput" id="lname" onChange={handleInputChange}/>
           </fieldset>
 
           <fieldset className="form__acceptTerms inputContainer">
-            <input type="checkbox" name="" id="terms" />
+            <input type="checkbox" name="" id="terms" onChange={handleInputChange}/>
             <label htmlFor="terms">Godkänner&nbsp;villkoren</label>
           </fieldset>
 
-          <button onClick={handleFormInput} className='form__submitBtn'>Boka&nbsp;biljetter</button>
+          <button type="submit" className='form__submitBtn'>Boka&nbsp;biljetter</button>
 
         </form>
       </section>
@@ -111,4 +108,4 @@ function Form(){
 
 
 
-export default Form;
+export default FormHooks;
