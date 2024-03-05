@@ -28,11 +28,14 @@
     }
 
     const addChar = () => {
-      setCharacter({
-        name,
-        age,
-        isEmployed
-      });
+      if(name && age && isEmployed){
+        setCharacter({
+          name,
+          age,
+          isEmployed
+        });
+      }
+      
     }
 
     useEffect(() => {
