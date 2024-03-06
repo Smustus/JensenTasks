@@ -22,4 +22,23 @@
     margin: 4% 1% 4% 1%;
     height: 100%;
   }
+
+  a {
+    color: rgb(50, 50, 116);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(145, 145, 221);
+    text-decoration: underline;
+  }
+
+  a:visited  {
+    color: rgb(145, 145, 221);
+  }
+
+  a:visited:hover {
+    color: rgb(50, 50, 116);
+  }
+
 }

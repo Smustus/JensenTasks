@@ -13,7 +13,7 @@ function MovieCard(props){
             <h3>{Title}</h3>
             <p>Released: {Year}</p>
           </div>
-          <p className='imdbID'>imdb ID: {imdbID}</p>
+          <a href={`https://www.imdb.com/title/${imdbID}`} className="movieCard__imdbLink">IMDb</a>
         </section>
       </article>
     </>
