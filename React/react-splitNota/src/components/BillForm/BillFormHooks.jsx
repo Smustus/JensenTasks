@@ -11,7 +11,7 @@ function BillFormHook(){
     console.log(data);
     const { sum, amount, tip } = data; 
     const calc = (Number(sum) * 100) * (1 + (Number(tip) / 100)) / Number(amount) /100;
-    console.log(parseFloat(calc, 2) + ' kr var');
+    console.log(parseFloat(calc) + ' kr var');
     return calc;
   }
 
