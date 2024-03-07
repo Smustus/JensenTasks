@@ -1,5 +1,7 @@
 .pixel {
   width: 16px;
   height: 16px;
-  background-color: orange;
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+  margin: 1px;
 }

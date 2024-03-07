@@ -1,0 +1,17 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    min-height: 20px;
+  }
+
+  .submitBtn {
+    border-radius: 25px;
+    min-height: 40px;
+    margin: 10%;
+  }
+}
+
+
+

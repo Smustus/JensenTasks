@@ -3,21 +3,15 @@ import './Row.css';
 import Pixel from "../Pixel/Pixel.jsx";
 
 function Row(props){
+
+  const { columns, color } = props;
+
   
-  const [column, setColumn] = useState();
-
-  const { columns } = props;
-  let i = 0;
-
- /*  do {
-    setColumn(prevState => prevState, <Pixel />);
-    i++;
-  } while (i < 4);
- */
-
-  useEffect(() => {
-    console.log(column);
-  }, [column]);
+  const arr = new Array(columns).fill(0);
+ 
+  const column = arr.map(() => {
+    return <Pixel color={color}/>;
+  });
 
   return(
     <>
