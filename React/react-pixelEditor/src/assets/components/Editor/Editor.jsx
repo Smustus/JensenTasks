@@ -7,7 +7,7 @@ function Editor(props){
 
   const [pixelColor, setPixelColor] = useState('#000000');
 
-  const {columns, rows} = props;
+  const {columns, rows, handleReturn} = props;
   
 
   const selectPixelColor = (e) => {
@@ -22,6 +22,7 @@ function Editor(props){
     <>
       <TwitterPicker onChangeComplete={ selectPixelColor } />
       <DrawingPanel columns={Number(columns)} rows={Number(rows)} color={pixelColor} />
+      <button className="returnBtn" onClick={ handleReturn }>Return</button>
     </>
   );
 }

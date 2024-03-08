@@ -29,6 +29,11 @@ function App() {
     setShowEditor(true);
   }
 
+  const handleReturn = () => {
+    setShowInput(true);
+    setShowEditor(false);
+  }
+
 
   return (
     <>
@@ -36,7 +41,7 @@ function App() {
 
       {showInput && <StartInput handleCInput={ handleCInput } handleRInput={ handleRInput } handleOnSubmit={ handleOnSubmit }/>}
 
-      {showEditor && <Editor columns={columns} rows={rows} />}
+      {showEditor && <Editor columns={columns} rows={rows} handleReturn={ handleReturn }/>}
     
     </>
   )
