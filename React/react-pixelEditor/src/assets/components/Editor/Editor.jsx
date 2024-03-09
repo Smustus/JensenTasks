@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { TwitterPicker } from 'react-color';
+/* import { TwitterPicker } from 'react-color'; */
+/* import { CompactPicker } from 'react-color'; */
+import { SwatchesPicker } from 'react-color';
+
 import DrawingPanel from '../DrawingPanel/DrawingPanel.jsx';
 
 
@@ -20,7 +23,9 @@ function Editor(props){
 
   return(
     <>
-      <TwitterPicker onChangeComplete={ selectPixelColor } />
+      {/* <TwitterPicker onChangeComplete={ selectPixelColor } /> */}
+      {/* <CompactPicker onChangeComplete={ selectPixelColor } /> */}
+      <SwatchesPicker onChangeComplete={ selectPixelColor } />
       <DrawingPanel columns={Number(columns)} rows={Number(rows)} color={pixelColor} />
       <button className="returnBtn" onClick={ handleReturn }>Return</button>
     </>

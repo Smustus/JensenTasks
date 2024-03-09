@@ -1,9 +1,11 @@
 .drawingPanel {
-  background-color: white;
+  /* background-color: white; */
+  background-color: rgb(129, 129, 129);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 3px solid white;
+  /* border: 3px solid white; */
+  border: 3px solid black;
   margin: 5%;
 }
