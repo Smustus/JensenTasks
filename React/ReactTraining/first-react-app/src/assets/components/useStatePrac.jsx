@@ -18,9 +18,8 @@
     }
 
     const updateAge = (inc) => {
-      if (age + inc >= 0) {
-        setAge(age + inc);
-      }
+      setAge(a => a + inc);
+    
     }
 
     const toggleEmployed = () => {
@@ -35,7 +34,13 @@
           isEmployed
         });
       }
-      
+    }
+
+    const removeChar = (index) => {
+      const updatedCharArr = charListArr.filter((_, i) => {
+        return i !== index
+      });
+      setCharListArr(updatedCharArr);
     }
 
     useEffect(() => {
@@ -46,9 +51,11 @@
     }, [character]);
 
     const generateCharList = () => {
-      console.log(charListArr);
       return charListArr.map((char, index) => {
-        return <li key={index}>{char.name}, Age: {char.age}, Employed: {char.isEmployed ? 'Yes' : 'No'}</li>
+        return <li key={index}>
+                  {char.name}, Age: {char.age}, Employed: {char.isEmployed ? 'Yes' : 'No'}
+                  <button className='delete-btn' onClick={ () => removeChar(index) }>X</button>
+                </li>
         });
       }
 
@@ -61,17 +68,17 @@
             <p>
               Name: {name}
             </p>
-            <input className="nameInput" placeholder="Enter a name" /* value={name}  */onChange={e => updateName(e)}></input>
+            <input className="nameInput" placeholder="Enter a name" /* value={name}  */onChange={updateName}></input>
             <br></br>
-            <button onClick={clickEvent}>Set name</button>
+            <button onClick={clickEvent}>Log msg</button>
 
             <p>
               Age: {age}
             </p>
-            <input className="ageInput" placeholder="Enter age" onChange={(e) => setAge(e.target.value)}></input>
+            <input className="ageInput" placeholder="Enter age" onChange={(e) => setAge(parseFloat(e.target.value))}></input>
             <button onClick={() => updateAge(+1)}>Increase age by 1</button>
             <button onClick={() => updateAge(-1)}>Decrease age by 1</button>
-            <button onClick={() => updateAge(0)}>Reset age</button>
+            <button onClick={() => setAge(0)}>Reset age</button>
 
             <p>
               Employed: {isEmployed ? 'Yes' : 'No'}
