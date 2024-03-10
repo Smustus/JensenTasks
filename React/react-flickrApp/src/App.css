@@ -1,7 +1,9 @@
 
 .main {
+  min-width: 350px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0px 25px;
 }

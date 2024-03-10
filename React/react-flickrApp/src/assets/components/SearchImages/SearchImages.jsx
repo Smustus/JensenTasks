@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import './SearchImages.css';
+import searchIcon from '../../icons/magnifyingGlassWhite.svg';
 
 
 
@@ -40,7 +41,7 @@ function SearchImages(props){
 
   return(
     <section className="searchSection">
-      <label htmlFor="searchInput">Search: </label>
+      <img src={ searchIcon } alt="" srcset="" />
       <input type="text" id="searchInput" className="searchInput" placeholder="Search photos" onChange={ handleSearchInput }/>
     </section>
   );

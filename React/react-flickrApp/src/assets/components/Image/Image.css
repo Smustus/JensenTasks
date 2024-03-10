@@ -1,13 +1,31 @@
 .imageCard {
-  /* background-color: rgb(0, 0, 0);
-  color: black; */
   max-height: 500px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 0px;
 
   img {
     height: 100%;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: -4px 4px 1px rgba(36, 36, 36, 0.445);
   }
 } 
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(150%);
+  padding: 6px;
+  background-color: rgb(36, 36, 36);
+  border: 5px solid rgb(36, 36, 36);
+  border-radius: 8px;
+  z-index: 15;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.822);
+}

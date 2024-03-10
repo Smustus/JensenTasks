@@ -8,10 +8,13 @@ function DisplayImages(props){
 
   const [images, setImages] = useState([]);
 
+  const pictureSection = document.querySelector('.pictureSection');
+
 
 
   useEffect(() => {
-    if(search){
+    if(search.length > 0){
+      pictureSection.style.visibility = 'visible';
       const img = search.map((obj) => {
         const imageURL = `https://live.staticflickr.com/${obj.server}/${obj.id}_${obj.secret}_w.jpg`
         return <Image key={obj.id} title={obj.title} imageURL={ imageURL } />
@@ -19,6 +22,7 @@ function DisplayImages(props){
       setImages(img)
     } else {
       setImages([]);
+      pictureSection.style.visibility = 'hidden';
     }
   }, [search]);
   
