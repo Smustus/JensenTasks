@@ -28,7 +28,7 @@
     }
 
     const addChar = () => {
-      if(name && age && isEmployed){
+      if(name.length > 0 && age > 0){
         setCharacter({
           name,
           age,
