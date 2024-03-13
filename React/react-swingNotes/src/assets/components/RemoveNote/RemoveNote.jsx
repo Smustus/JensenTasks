@@ -6,13 +6,16 @@ function RemoveNote(props){
   const { id, fetchData, searchInput } = props;
 
   const deleteNote = () => {
-    fetchData('DELETE', id);
-    fetchData('GET', searchInput)
+    fetchData('DELETE', `/${id}`).then(() => {
+      console.log('Note removed');
+      fetchData('GET', `/${searchInput}`)
+      .catch(error => console.log(error));
+    });
   }
 
   return(
     <>
-      <button className="btnSection__deleteNoteBtn" onClick={deleteNote}>Delete</button>
+      <button className="btnSection__deleteNoteBtn" onClick={ deleteNote }>Delete</button>
     </>
   );
 }

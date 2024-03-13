@@ -5,15 +5,19 @@ function UpdateNote(props){
 
   const { id, notesData, fetchData, searchInput } = props;
 
+  const [findNote, setFindNote] = useState({});
+
   const [note, setNote] = useState({});
 
   useEffect(() => {
-
-    fetchData('PUT', id, note)
+      if(note && Object.keys(note).length !== 0){
+      fetchData('PUT', `/${id}`, note)
       .then(() => {
-        fetchData('GET', searchInput);
-      })
+        console.log('Note updated');
+        fetchData('GET', `/${searchInput}`)
       .catch(error => console.log(error));
+      });
+    }
     
   }, [note]);
 
@@ -23,19 +27,17 @@ function UpdateNote(props){
         return obj.id === id;
       });
       console.log(post);
-      setNote(post);
+      setFindNote(post);
     }
     const newText = prompt('Enter new note text');
     if (newText !== null && newText !== '') {
-      setNote({note: newText});
+      setNote({...findNote, note: newText});
     }
   };
 
   return(
     <>
-      
       <button className="btnSection__modifyNoteBtn" onClick={ modifyNote }>Modify</button>
-
     </>
   );
 }

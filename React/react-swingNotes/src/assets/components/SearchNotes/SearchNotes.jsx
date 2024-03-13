@@ -7,20 +7,19 @@ function SearchNote(props){
 
 
   useEffect(() => {
-    if(searchInput.length > 0){
-      fetchData('GET', searchInput)
-    }
+    fetchData('GET', `/${searchInput}`)
   }, [searchInput]);
 
 
   const handleSearchInput = (e) => {
-    setSearchInput(e.target.value);
+    setSearchInput((e.target.value).toLowerCase());
   }
 
   return(
-    <>
-      <input type="text" className="searchInput" placeholder="Search username" onChange={ handleSearchInput }/>
-    </>
+    <section className='searchInputContainer'>
+      <label htmlFor="searchInput">Search:</label>
+      <input type="text" id='searchInput' className="searchInput" placeholder="Enter username" onChange={ handleSearchInput }/>
+    </section>
   );
 }
 
