@@ -1,0 +1,8 @@
+.searchInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(88, 88, 88);
+  border-radius: 8px 8px 0 0;
+}
+
