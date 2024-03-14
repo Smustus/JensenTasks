@@ -22,9 +22,9 @@ function DisplayImages(props){
       setImages(img)
     } else {
       setImages([]);
-      pictureSection.style.visibility = 'hidden';
+      /* pictureSection.style.visibility = 'hidden'; */
     }
-  }, [search]);
+  }, [search, pictureSection]);
   
   return(
     <>
