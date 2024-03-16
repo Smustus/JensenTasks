@@ -1,0 +1,10 @@
+.registerBtn {
+  min-height: 50px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-weight: 600;
+  padding: 1% 5%;
+  margin-top: 12%;
+} 

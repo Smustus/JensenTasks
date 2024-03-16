@@ -1,0 +1,14 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.welcomeContainer__title {
+  width: 100%;
+  background-color: rgb(211, 211, 211);
+  color: rgb(54, 54, 54);
+  border-radius: 4px 4px 0 0;
+  padding: 3% 0%;
+}

@@ -14,14 +14,6 @@
     justify-content: flex-start;
     border-right: 1px solid rgb(88, 88, 88);
     padding: 0% 3% 0% 1%;
-
-    .info__username {
-  
-    }
-    
-    .info__createdDate {
-      
-    }
   }
   
   .note__textSection {
@@ -34,10 +26,6 @@
   
     .textSection__noteTitle {
       text-decoration: underline;
-    }
-  
-    .textSection__noteText {
-  
     }
   }
   
