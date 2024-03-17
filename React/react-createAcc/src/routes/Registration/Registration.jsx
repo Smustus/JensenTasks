@@ -44,6 +44,7 @@ function Registration(props){
         </fieldset>
         <p className="form__msg">{formMsg}</p>
         <Link to={isValid ? "/account" : ''}><button type='submitBtn' className="submitBtn" onClick={ handleSubmit }>Sign me up!</button></Link>  
+        
         <Link to="/account"><button className="submitBtn">Skip</button></Link> 
       </form>
        

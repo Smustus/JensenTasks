@@ -1,0 +1,62 @@
+.eventContainer {
+  display: flex;
+  margin: 2% 0%;
+
+  .eventContainer__date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 5%;
+    margin: 1% auto 0% 1%;
+    width: 15vw;
+    height: 15vw;
+
+    .dateText {
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      width: 80%;
+    }
+  }
+
+  .eventInfoAndPriceWrapper {
+    display: flex;
+    border-bottom: 1px solid white;
+    width: 75%;
+    text-align: start;
+  }
+ 
+
+  .eventContainer__eventInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    .eventInfo__artist {
+      width: 100%;
+      text-shadow: 1px 1px rgba(245, 107, 154, 1);
+    }
+
+    .eventInfo__location {
+      font-size: 0.8rem;
+    }
+
+    .eventInfo__time {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+  }
+
+  .eventContainer__price {
+    align-self: flex-end;
+    margin-left: 10%;
+
+    .priceText {
+      font-weight: 600;
+      color: rgba(55, 174, 171, 1)
+    }
+  }
+}
