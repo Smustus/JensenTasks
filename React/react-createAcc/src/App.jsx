@@ -10,9 +10,9 @@ import Account from './routes/Account/Account'
 function App() {
 
   const [formInput, setFormInput] = useState({
-    name: null,
-    email: null,
-    password: null
+    name: 'placeholder',
+    email: 'placeholder',
+    password: 'placeholder'
   });
   
 
@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/registration' element={ <Registration formInput={ formInput } setFormInput={ setFormInput }/> } />
-        <Route path='/account' element={ <Account formInput={ formInput } /> } />
+        <Route path='/account' element={ <Account formInput={ formInput } setFormInput={ setFormInput } /> } />
         <Route path='*' element={ <ErrorPage /> } />
       </Routes>
     </>

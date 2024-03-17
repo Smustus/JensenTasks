@@ -14,6 +14,45 @@
     font-size: 1.3rem;
   }
 
+  .accountContainer__accountData {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+
+    .accountData__container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border: none;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 4%;
+
+      h4 {
+        font-weight: 600;
+        font-size: 0.7rem;
+        color: rgb(124, 124, 124);
+      }
+  
+      p {
+        padding: 1%;
+        background-color: white;
+        color: rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    .changeBtn {
+      min-height: 50px;
+      width: 100%;
+      font-weight: 600;
+      padding: 1% 5%;
+      margin-top: 12%;
+    }
+  }
+
   form {
     width: 100%;
     display: flex;
@@ -21,50 +60,42 @@
     justify-content: center;
     align-items: center;
     padding: 3%;
-  }
 
-  .form__inputContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    border: none;
-    justify-content: center;
-    margin-bottom: 4%;
-    
+    .form__inputContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border: none;
+      justify-content: center;
+      margin-bottom: 4%;
+      
+  
+      label {
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.7rem;
+        color: rgb(124, 124, 124);
+      }
+  
+      .form__input {
+        padding: 1%;
+        background-color: white;
+        color: black;
+        border: 1px solid rgb(124, 124, 124);
+      }
+    }
 
-    label {
-      text-align: left;
+    .submitBtn {
+      min-height: 50px;
+      width: 100%;
       font-weight: 600;
-      font-size: 0.7rem;
-      color: rgb(124, 124, 124);
+      padding: 1% 5%;
+      margin-top: 12%;
     }
-
-    .form__input {
-      padding: 1%;
-      background-color: white;
-      color: black;
-      border: 1px solid rgb(124, 124, 124);
+  
+    a {
+      width: 100%;
     }
-  }
-
-  .submitBtn {
-    min-height: 50px;
-    width: 100%;
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    font-weight: 600;
-    padding: 1% 5%;
-    margin-top: 12%;
-  }
-
-  .submitBtn:hover {
-    border: 1px solid rgba(0, 0, 0, 0.6);
-    color: rgba(0, 0, 0, 0.6);
-  }
-
-  a {
-    width: 100%;
   }
 }
 
