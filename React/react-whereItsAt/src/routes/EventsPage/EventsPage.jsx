@@ -23,9 +23,8 @@ function EventsPage(props){
   }
 
   const events = eventData.map((obj, index) => {
-    return <Link to="/buy" key={ index } onClick={ () => handleClickedEvent(obj) }>
-              <Event data={obj} />
-          </Link>
+    return <Event key ={ index } data={ obj } />
+          
   });
 
   return(

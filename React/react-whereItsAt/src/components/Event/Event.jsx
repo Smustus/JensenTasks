@@ -1,4 +1,5 @@
 import './Event.css';
+import { useNavigate } from 'react-router-dom';
 
 function Event(props){
 
@@ -6,9 +7,14 @@ function Event(props){
   const { name, price, where, when } = data;
   const { date, from, to } = when;
 
+  const navigate = useNavigate();
 
+  const handleClickedEvent = () => {
+    navigate('/buy', { state: { data: data } });
+  }
+  
   return(
-    <section className="eventContainer">
+    <section className="eventContainer" onClick={ handleClickedEvent }>
 
       <section className="eventContainer__date">
         <p className="dateText">{ date }</p>

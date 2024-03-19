@@ -27,6 +27,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #242424;
 }
 
 h1, h2 {
@@ -37,6 +38,7 @@ h1, h2 {
 
 h3, p, a, button {
   font-family: "Fira Sans", sans-serif;
+  color: white;
 }
 
 a {

@@ -1,12 +1,10 @@
 import './OrderConfirm.css';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
-function OrderConfirm(props){
+function OrderConfirm(){
 
-  const { clickedEvent } = props;
-  console.log(clickedEvent);
-
+  const { state } = useLocation();
 
   return(
     <section className='orderConfPage'>
@@ -14,24 +12,24 @@ function OrderConfirm(props){
       <article className="orderConfPage__orderInfo">
         <section className="orderInfo__artist">
           <p>WHAT</p>
-          <h2>{ clickedEvent.name }</h2>
+          <h2>{ state.data.name }</h2>
         </section>
         <section className="orderInfo__location">
           <p>WHERE</p>
-          { clickedEvent.where }
+          { state.data.where }
         </section>
         <section className="orderInfo__time">
           <div className="time__date">
             <p>WHEN</p>
-            { clickedEvent.when.date }
+            { state.data.when.date }
           </div>
           <div className="time__from">
             <p>FROM</p>
-            { clickedEvent.when.from }
+            { state.data.when.from }
           </div>
           <div className="time__to">
             <p>TO</p>
-            { clickedEvent.when.to }
+            { state.data.when.to }
           </div>
         </section>
       </article>

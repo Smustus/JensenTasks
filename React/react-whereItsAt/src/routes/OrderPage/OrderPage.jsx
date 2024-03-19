@@ -1,21 +1,21 @@
 import './OrderPage.css';
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-function OrderPage(props){
+function OrderPage(){
 
-  const { clickedEvent } = props;
-  console.log(clickedEvent);
+  const { state } = useLocation();
+  console.log(state.data);
 
   return(
     <section className='orderPage'>
       <p className="orderPage__infoText">You are about to score some tickets to</p>
       <div>
-        <h2 className="orderPage__artist">{ clickedEvent.name }</h2>
-        <p className="orderPage__dateAndTime">{clickedEvent.when.date}&nbsp;kl.&nbsp;{clickedEvent.when.from}&nbsp;-&nbsp;{clickedEvent.when.to}</p>
-        <p className="orderPage__location">@&nbsp;{ clickedEvent.where }</p>
+        <h2 className="orderPage__artist">{ state.data.name }</h2>
+        <p className="orderPage__dateAndTime">{state.data.when.date}&nbsp;kl.&nbsp;{state.data.when.from}&nbsp;-&nbsp;{state.data.when.to}</p>
+        <p className="orderPage__location">@&nbsp;{ state.data.where }</p>
       </div>
-      <h3 className="orderPage__price">{ clickedEvent.price }&nbsp;sek</h3>
-      <Link to={ '/tickets' }><button className="orderBtn">Beställ</button></Link>
+      <h3 className="orderPage__price">{ state.data.price }&nbsp;sek</h3>
+      <Link to={ '/tickets' } state={{ data: state.data }}><button className="orderBtn">Beställ</button></Link>
     </section>
   );
 }
