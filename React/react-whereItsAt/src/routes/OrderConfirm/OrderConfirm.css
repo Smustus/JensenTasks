@@ -1,0 +1,67 @@
+.orderConfPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: start;
+  
+  .orderConfPage__msg {
+    font-size: 2rem;
+    width: 60%;
+    text-align: center;
+  }
+
+  .orderConfPage__orderInfo {
+    background-color: white;
+    border-radius: 3px;
+    width: 90%;
+    margin: 10%;
+
+    .orderInfo__artist {
+      color: rgba(245, 107, 154, 1);
+      font-size: 1.4rem;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.6);
+      padding: 5%;
+    }
+
+    .orderInfo__location {
+      color: rgba(0, 0, 0, 0.7);
+      font-weight: 600;
+      padding: 5% 5% 15% 5%;
+      font-size: 1.4rem;
+    }
+
+    .orderInfo__time {
+      color: rgba(0, 0, 0, 0.6);
+      font-weight: 600;
+      display: flex;
+      border: 1px dashed rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.06);
+
+      div {
+        width: 100%;
+        border: 1px dashed rgba(0, 0, 0, 0.6);
+        font-size: 1.2rem;
+      }
+
+      .time__date {
+        padding: 5%;
+      }
+
+      .time__from {
+        margin: 0 auto;
+        padding: 5%;
+      }
+
+      .time__to {
+        padding: 5%;
+      }
+    }
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.4);
+  }
+}

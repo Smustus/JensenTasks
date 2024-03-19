@@ -1,0 +1,22 @@
+{
+  "products": [
+   {
+     "id": 1,
+     "title": "Toilet seat",
+     "description": "Lorem ipsum dolor sit amet consectetur adipisicing",
+     "price": 29.99
+   },
+   {
+     "id": 2,
+     "title": "Integrity",
+     "description": "Lorem ipsum dolor sit amet consectetur adipisicing",
+     "price": 19.99
+   },
+   {
+     "id": 3,
+     "title": "Charm",
+     "description": "Lorem ipsum dolor sit amet consectetur adipisicing",
+     "price": 39.99
+   }
+ ]
+}

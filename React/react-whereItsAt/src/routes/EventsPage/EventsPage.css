@@ -1,0 +1,14 @@
+.eventPage {
+  text-align: center;
+
+  .eventPage__title {
+    margin: 5% 0%;
+  }
+  
+  .eventSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  } 
+}

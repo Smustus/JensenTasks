@@ -11,22 +11,6 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-
-    .createNoteSection__username {
-
-    }
-  
-    .createNoteSection__title {
-  
-    }
-  
-    .createNoteSection__note {
-  
-    }
-  
-    .createNoteSection__registerNoteBtn {
-  
-    }
   }
  
 }
