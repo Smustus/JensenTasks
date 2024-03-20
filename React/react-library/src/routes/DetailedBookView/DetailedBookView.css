@@ -1,0 +1,77 @@
+.detailedBookSection {
+  display: flex;
+  margin: 5% 0%;
+}
+
+.bookDetailed {
+  background: linear-gradient(200deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  border-radius: 3px;
+  width: 42vw;
+  height: 45vw;
+
+  .bookDetailed__authorAndTitleContainer {
+    border-left: 4px solid rgba(0, 0, 0, 0.5);
+    height: 100%;
+    margin: 0% 2% 0% 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: flex-end;
+    padding: 0% 4% 6% 8%;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .bookDetailed__title {
+    font-size: 3rem;
+  }
+
+  .bookDetailed__author {
+    font-size: 1.6rem;
+  }
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42vw;
+  height: 45vw;
+  margin-left: 5%;
+  text-align: start;
+
+  .bookDetailed__title {
+    font-size: 3rem;
+  }
+
+  .bookDetailed__author {
+    font-size: 1.6rem;
+  }
+}
+
+.bookInfo__randomInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: rgba(196, 196, 196, 0.08);
+  border-radius: 2px;
+  padding: 2% 5%;
+  text-align: start;
+}
+
+.bookInfo__btn {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  border: none;
+  border-radius: 4px;
+  width: 50%;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  min-height: 50px;
+}
+
+.bookInfo__btn:hover {
+  color: rgba(0, 0, 0, 1);
+}

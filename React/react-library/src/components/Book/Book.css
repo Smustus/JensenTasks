@@ -1,0 +1,28 @@
+.book {
+  width: 17vw;
+  height: 20vw;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  border-radius: 3px;
+
+  .book__authorAndTitleContainer {
+    border-left: 4px solid rgba(0, 0, 0, 0.5);
+    height: 100%;
+    margin: 0% 2% 0% 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: flex-end;
+    padding: 0% 6% 8% 6%;
+  }
+
+  .book__title {
+    font-size: 1.3rem;
+  }
+
+  .book__author {
+    font-size: 0.9rem;
+  }
+}

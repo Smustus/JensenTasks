@@ -1,11 +1,10 @@
 import './EventsPage.css';
-import { useEffect, useState, createContext, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Event from '../../components/Event/Event';
 
-function EventsPage(props){
+function EventsPage(){
 
-  const { setClickedEvent } = props;
   const [eventData, setEventData] = useState([]);
 
   useEffect(() => {
@@ -18,9 +17,7 @@ function EventsPage(props){
     setEventData(data);
   }
 
-  const handleClickedEvent = (obj) => {
-    setClickedEvent(obj);
-  }
+  
 
   const events = eventData.map((obj, index) => {
     return <Event key ={ index } data={ obj } />

@@ -9,16 +9,14 @@ import OrderConfirm from './routes/OrderConfirm/OrderConfirm';
 
 
 function App() {
-  
-  const [clickedEvent, setClickedEvent] = useState([])
 
   return (
     <>
     <Routes>
       <Route path={ '/' } element={ <Home /> } />
-      <Route path={ '/events' } element={ <EventsPage clickedEvent={ clickedEvent } setClickedEvent={ setClickedEvent }/> } />
-      <Route path={ '/buy' } element={ <OrderPage clickedEvent={ clickedEvent } /> } />
-      <Route path={ '/tickets' } element={ <OrderConfirm clickedEvent={ clickedEvent } /> } />
+      <Route path={ '/events' } element={ <EventsPage /> } />
+      <Route path={ '/buy' } element={ <OrderPage  /> } />
+      <Route path={ '/tickets' } element={ <OrderConfirm  /> } />
     </Routes>
       
     </>

@@ -1,6 +1,7 @@
 .eventContainer {
   display: flex;
   margin: 2% 0%;
+  cursor: pointer;
 
   .eventContainer__date {
     display: flex;

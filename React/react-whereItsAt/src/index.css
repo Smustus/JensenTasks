@@ -44,6 +44,7 @@ h3, p, a, button {
 a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
@@ -51,3 +52,6 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  cursor: pointer;
+}
