@@ -1,2 +1,2 @@
 # Jensen Tasks 
-Variation of task provided by Jensen Yrkeshögskola
+Variation of tasks provided by Jensen Yrkeshögskola
