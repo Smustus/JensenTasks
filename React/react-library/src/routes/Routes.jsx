@@ -13,7 +13,7 @@ const routes = createBrowserRouter([
     element: <Books />
   },
   {
-    path: "/books/:name",
+    path: "/books/:id",
     element: <DetailedBookView />
   }
 ]);
