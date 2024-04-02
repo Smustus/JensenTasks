@@ -1,10 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './DisplayNotes.css';
 import Note from '../Note/Note';
+import { LightContext } from '../../../App';
+import { NotesData } from '../../../App';
 
 function DisplayNotes(props){
 
-  const { notesData, fetchData, searchInput } = props;
+  const lightMode = useContext(LightContext);
+  const notesData = useContext(NotesData);
+
+  const { fetchData, searchInput } = props;
 
   const [notes, setNotes] = useState([]);
 
@@ -21,7 +26,7 @@ function DisplayNotes(props){
 
   return(
     <>
-      <section className="noteSection">{ notes }</section>
+      <section className={`${lightMode ? 'lightModeNoteSectionOn' : ''} noteSection`}>{ notes }</section>
     </>
   );
 }

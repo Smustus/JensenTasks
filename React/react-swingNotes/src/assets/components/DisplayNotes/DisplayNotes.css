@@ -5,3 +5,7 @@
   flex-direction: column;
   border-radius: 0 0 8px 8px;
 }
+
+.lightModeNoteSectionOn {
+  background-color: rgb(214, 214, 214);
+}

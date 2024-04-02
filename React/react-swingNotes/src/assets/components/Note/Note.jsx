@@ -1,15 +1,19 @@
 import './Note.css';
 import RemoveNote from '../RemoveNote/RemoveNote.jsx';
 import UpdateNote from '../UpdateNote/UpdateNote.jsx';
+import { useContext } from 'react';
+import { LightContext } from '../../../App.jsx';
 
 
 function Note(props){
 
   const { username, createdAt, title, note, id, notesData, fetchData, searchInput } = props;
 
+  const lightMode = useContext(LightContext);
+
   return(
     <>
-      <article className="note">
+      <article className={`${lightMode ? 'lightModeNoteOn' : ''} note`}>
         <section className="note__infoSection">
           <h3 className="info__username">{username[0].toUpperCase() + username.slice(1)}</h3>
           <p className="info__createdDate">Posted:{createdAt}</p>

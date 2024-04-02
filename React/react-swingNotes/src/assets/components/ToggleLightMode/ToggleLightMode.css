@@ -1,0 +1,55 @@
+.toggleLightMode {
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+
+  .toggleLightMode__text {
+    padding: 1%;
+  }
+
+  .toggleBar {
+    background-color: azure;
+    height: 40px;
+    width: 80px;
+    border-radius: 25px;
+  
+    .toggleBar__dot {
+      background-color: black;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      margin: 2px;
+    }
+
+    .toggled {
+      animation: slide 0.5s ease-in-out forwards;
+    }
+
+    .untoggled {
+      animation: slideBack 0.5s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(38px);
+  }
+}
+
+@keyframes slideBack {
+  from {
+    transform: translateX(38px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+

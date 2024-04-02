@@ -6,3 +6,11 @@
   border-radius: 8px 8px 0 0;
 }
 
+.empty {
+  border-radius: 8px;
+}
+
+.lightModeSearchInputOn {
+  background-color: rgb(214, 214, 214);
+}
+

@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import SearchNote from './assets/components/SearchNotes/SearchNotes.jsx';
 import DisplayNotes from './assets/components/DisplayNotes/DisplayNotes.jsx';
 import CreateNote from './assets/components/CreateNote/CreateNote.jsx';
+import ToggleLightMode from './assets/components/ToggleLightMode/ToggleLightMode.jsx';
+
+export const LightContext = createContext();
+export const ChangeLightModeContext = createContext();
+export const NotesData = createContext();
 
 function App() {
+
+  const [lightMode, setLightMode] = useState(false);
   
   const [notesData, setNotesData] = useState([]);
 
@@ -27,20 +34,29 @@ function App() {
     }
   }
 
+  lightMode ? document.body.classList.add('lightModeBodyOn') : document.body.classList.remove('lightModeBodyOn');
+
   return (
     <>
-      <header className="header">
-        <h1 className="pageTitle">SwingNotes in react</h1>
-      </header>
-      <main className="main">
-        <CreateNote searchInput={ searchInput } fetchData={ fetchData } />
-        <section className='main__searchNdisplay'>
-          <SearchNote  setSearchInput={ setSearchInput } searchInput={ searchInput } fetchData={ fetchData } />
-          <DisplayNotes searchInput={ searchInput } fetchData={ fetchData } notesData={ notesData } setNotesData={ setNotesData }/>
-        </section>
-      </main>
+      <LightContext.Provider value={ lightMode }>
+      <ChangeLightModeContext.Provider value={ setLightMode }>
+        <header className={`${lightMode ? 'lightModeHeaderOn' : ''} header`}>
+          <h1 className="pageTitle">SwingNotes in react</h1>
+          <ToggleLightMode />
+        </header>
+        <main className={`${lightMode ? 'lightModeMainOn' : ''} main`}>
+          <CreateNote searchInput={ searchInput } fetchData={ fetchData } />
+          <NotesData.Provider value={ notesData }>
+            <section className={`${lightMode ? 'lightModeSearchOn' : ''} main__searchNdisplay`}>
+              <SearchNote  setSearchInput={ setSearchInput } searchInput={ searchInput } fetchData={ fetchData } />
+              <DisplayNotes searchInput={ searchInput } fetchData={ fetchData } setNotesData={ setNotesData }/>
+            </section>
+          </NotesData.Provider>
+        </main>
+      </ChangeLightModeContext.Provider>
+      </LightContext.Provider>
     </>
   )
 }
 
-export default App
+export default App;
