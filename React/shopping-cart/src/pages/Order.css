@@ -1,6 +1,11 @@
 .order {
+  background-color: white;
+  border-radius: 15px;
+  padding: 16px;
+
   .order__summary {
-    border: 1px dotted #dcdcdc;
+    border-top: 1px solid #474747;
+    border-bottom: 1px solid #474747;
     padding: 1rem 4rem;
     margin-bottom: 1rem;
   }

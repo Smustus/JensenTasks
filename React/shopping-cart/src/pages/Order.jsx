@@ -16,9 +16,8 @@ function Order() {
     // Räknar ut totalsumman av alla produkter
     const initialValue = 0;
     const total = cart.reduce((total, item) => {
-      return item.price + total;
+      return ((item.price * item.quantity) + total);
     }, initialValue);
-
     return total;
   }
 

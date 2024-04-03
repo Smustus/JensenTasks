@@ -1,11 +1,12 @@
 .product {
     width: 22rem;
-    border: 1px solid #dcdcdc;
+    border: 1px solid rgb(117, 117, 163);
     margin: 1rem;
     display: flex;
     flex-direction: column;
     border-radius: 16px;
-    box-shadow: 0 3px 12px #dcdcdc;
+    box-shadow: 0 3px 4px rgba(186, 188, 223, 0.8);
+    background-color: rgb(255, 255, 255);
 
     .product__image {
         width: 100%;
@@ -36,6 +37,7 @@
             border-radius: 3rem;
             cursor: pointer;
             transition: 0.5s background-color linear, 0.3s color linear;
+            color: black;
         }
 
         .product__button:hover {
@@ -46,5 +48,5 @@
 }
 
 .product:hover {
-    box-shadow: 0 5px 28px #dcdcdc;
+    box-shadow: 0 5px 16px rgba(186, 188, 223, 0.8);
 }

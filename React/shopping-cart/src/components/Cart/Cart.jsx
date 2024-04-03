@@ -8,10 +8,18 @@ function Cart() {
   });
   console.log(cart);
 
+  const totalQuantity = () => {
+    let counter = 0;
+    const amount = cart.reduce((total, obj) => {
+      return obj.quantity + total;
+    }, counter);
+    return amount;
+  }
+
   return (
     <section className='cart'>
       <Link to={'/cart'}>Cart</Link>
-      <p className='cart__amount'>{cart.length}</p>
+      <p className='cart__amount'>{totalQuantity()}</p>
     </section>
   );
 }
