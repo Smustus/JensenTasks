@@ -72,7 +72,7 @@ function playGame(playerMove){
   if(compMove === playerMove){
     resultMsg.textContent = 'It´s a draw!'
     drawCount++
-    } else if ((compMove === 'Rock' && playerMove === 'Paper') || (compMove === 'Paper' && playerMove === 'Scissors') || (compMove === 'Scissors' && playerMove === 'Rock')){
+    } else if ((compMove == 'Rock' && playerMove == 'Paper') || (compMove == 'Paper' && playerMove == 'Scissors') || (compMove == 'Scissors' && playerMove == 'Rock')){
       resultMsg.textContent = 'You win!'
       winCount++
     } else {
