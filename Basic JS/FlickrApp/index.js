@@ -59,12 +59,12 @@ async function genHTML(page){
     if(navAmount > 50){
       for(let i = 1; i <= 50; i++){
         nav.classList.remove('hidden');
-        new genNav(i);
+        new GenNav(i);
       }
     } else {
       for(let i = 1; i <= navAmount; i++){
         nav.classList.remove('hidden');
-        new genNav(i);
+        new GenNav(i);
       }
     }
 
@@ -93,7 +93,7 @@ class GenImage {
 }
 
 //Frame for generating navigation elements
-class genNav {
+class GenNav {
   constructor(page){
     this.element = document.createElement('a');
     this.element.textContent = `${page}`;

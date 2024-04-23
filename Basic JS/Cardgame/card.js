@@ -30,7 +30,7 @@ cardAmount.addEventListener('keydown', (e) => {
 shuffleBtn.addEventListener('click', () => {
   if(randomCards.length > 0){
     gameContainer.innerHTML = '';
-    shuffledRandomCards = shuffle(randomCards);
+    const shuffledRandomCards = shuffle(randomCards);
     generateCards(shuffledRandomCards);
   } else {
     gameContainer.innerHTML = '';
@@ -42,7 +42,7 @@ shuffleBtn.addEventListener('click', () => {
 sortBtn.addEventListener('click', () => {
   if(randomCards.length > 0){
     gameContainer.innerHTML = '';
-    sortedRandomCards = sort(randomCards);
+    const sortedRandomCards = sort(randomCards);
     generateCards(sortedRandomCards);
   } else {
     gameContainer.innerHTML = '';
@@ -294,25 +294,4 @@ function generateCards(deck){
     };
   }
 }
-/* console.log(generateCards(deck)); */
 console.log('---------------');
-
-/* else if(turned){
-        setTimeout(() => {
-          titleTop.innerHTML = cards.name;
-          suitTop.innerHTML = cards.suit;
-          suitMid.innerHTML = cards.suit;
-          suitBottom.innerHTML = cards.suit;
-          titleBottom.innerHTML = cards.name;
-      }, 600)
-        
-        setTimeout(() => {
-          card.classList.toggle('activeCard');
-          turned = false;
-          turnedCards--
-        }, 0);
-
-        setTimeout(() => {
-          card.classList.toggle('activeCardBackground');
-        }, 600);
-      } */  

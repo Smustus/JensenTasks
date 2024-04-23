@@ -43,7 +43,6 @@ async function getData(db, dbName) {
   const dataArr = [];
   dataObj.forEach((item) => {
       const data = item.data(); // Hämtar ut vårt objekt från vår collection
-      /* console.log(data); */
       dataArr.push(data);
   });
   return dataArr;
