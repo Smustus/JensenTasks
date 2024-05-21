@@ -13,7 +13,7 @@ Som en användare vill jag kunna se hur många produkter jag har i min varukorg 
 
 describe('App', () => {
 
-/*   it('Check if products are fetched', async () => {
+  it('Check if products are fetched', async () => {
     render(<App />);
     await waitFor(() => {
       expect(screen.getAllByRole('product').length).toBeGreaterThan(0);
@@ -32,11 +32,15 @@ describe('App', () => {
 
      const cartAmount = screen.getByRole('cartAmount');
      expect(cartAmount.textContent).toBe('1');
-  }); */
+  });
 
   it('Check if the seach input field is filtering', async () => {
     render(<App />);
-    
+
+    await waitFor(() => {
+      let products = screen.getAllByRole('product');
+      expect(products.length).toBe(30);
+    }); 
     
     const searchInput = screen.getByRole('textbox');
     fireEvent.change(searchInput, {
@@ -46,20 +50,9 @@ describe('App', () => {
     
     await waitFor(() => {
       let products = screen.getAllByRole('product');
-      expect(products.length).not.toBeGreaterThan(2)
-      expect(products.length).toBeGreaterThan(0)
+      expect(products.length).toBe(1);
     }); 
     
-    /* let products = await screen.findAllByRole('product'); */
-    
-
-    /* expect(products[0]).toHaveTextContent(/Microsoft/); */
-    /* products.forEach(product => {
-      expect(product).toHaveTextContent(/microsoft/i);
-      expect(product).toHaveTextContent(/iphone/i);
-    }); */
-
-
   });
 
 });
