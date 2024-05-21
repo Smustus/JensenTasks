@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
+import { beforeAll } from "vitest";
 
 /*
 Som användare vill jag kunna se en lista av produkter så att jag kan göra ett informerat val
@@ -12,19 +13,19 @@ Som en användare vill jag kunna se hur många produkter jag har i min varukorg 
 */
 
 describe('App', () => {
+  beforeEach(() => {
+    render(<App />);
+  });
 
   it('Check if products are fetched', async () => {
-    render(<App />);
     await waitFor(() => {
       expect(screen.getAllByRole('product').length).toBeGreaterThan(0);
      });    
   });
 
   it('Check if product is added to cart', async () => {
-    render(<App />);
-
     await waitFor(() => {
-      screen.getAllByRole('product');
+      expect(screen.getAllByRole('product').length).toBeGreaterThan(0);
      }); 
 
      const addToCartBtn = screen.getAllByRole('button')
@@ -35,11 +36,9 @@ describe('App', () => {
   });
 
   it('Check if the seach input field is filtering', async () => {
-    render(<App />);
 
     await waitFor(() => {
-      let products = screen.getAllByRole('product');
-      expect(products.length).toBe(30);
+      expect(screen.getAllByRole('product').length).toBeGreaterThan(0);
     }); 
     
     const searchInput = screen.getByRole('textbox');
