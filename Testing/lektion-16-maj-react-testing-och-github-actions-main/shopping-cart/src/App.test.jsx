@@ -1,6 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
-import { beforeAll } from "vitest";
 
 /*
 Som användare vill jag kunna se en lista av produkter så att jag kan göra ett informerat val
