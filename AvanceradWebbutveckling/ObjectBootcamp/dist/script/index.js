@@ -30,7 +30,6 @@ function reformatEmail(arr) {
     return arr.map(user => {
         const name = user.email.split("@");
         const [firstName, lastName] = name[0].split('.');
-        console.log(firstName);
         const country = user.nat;
         if (country === "UK") {
             return `${lastName}.${firstName}@evilcorp.uk`;
