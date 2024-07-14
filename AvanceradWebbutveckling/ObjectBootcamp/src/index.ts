@@ -3,7 +3,7 @@ import { User } from './interfaces.js';
 
 console.log(users);
 
-function filterByCountry(arr: User[], landcode: string) {
+function filterByCountry(arr: User[], landcode: string): User[] {
   return arr.filter(user => {    
     return user.nat === landcode;
     }
@@ -11,7 +11,7 @@ function filterByCountry(arr: User[], landcode: string) {
 }
 console.log(filterByCountry(users, "ES"));
 
-function filterByGender(arr: User[], gender: string) {
+function filterByGender(arr: User[], gender: string): User[] {
   if(gender === "Male"){
     return arr.filter(user => {      
       return (user.name.title === "Mr" || user.name.title === "Monsieur")
@@ -36,7 +36,7 @@ function listEmails(arr: User[]) {
 console.log(listEmails(users));
 
 
-function reformatEmail(arr: User[]){
+function reformatEmail(arr: User[]): string[]{
   return arr.map(user => {
     const name = user.email.split("@");
     const [firstName, lastName] = name[0].split('.');
