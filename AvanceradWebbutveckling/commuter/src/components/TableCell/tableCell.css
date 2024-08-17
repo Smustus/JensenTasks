@@ -1,0 +1,9 @@
+.tableCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1rem;
+  max-height: 120px;
+  width: 100%;
+  font-size: clamp(0.6rem, 0.2rem + 1vw, 0.8rem);
+}

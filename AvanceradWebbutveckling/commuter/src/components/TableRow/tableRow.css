@@ -1,0 +1,16 @@
+.tableRow {
+  display: flex;
+  background-color: rgb(70, 70, 70);
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  background-color: rgb(120, 120, 120);
+}
+
+.active {
+  background-color: rgb(120, 120, 120);
+}
