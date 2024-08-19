@@ -1,62 +1,40 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.timetable {
+  background-color: rgb(43, 43, 43);
   display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  min-width: 350px;
+  min-height: 100vh;
+  background: rgb(177,161,161);
+  background: linear-gradient(180deg, rgb(135, 135, 165) 10%, rgb(151, 151, 179) 40%, rgb(89, 89, 109) 90%);
 }
 
 .main {
   display: flex;
   justify-content: center;
-  background-color: rgb(153, 153, 153);
+  /* background-color: rgb(153, 153, 153); */
   padding: 12px;
   border-radius: 6px;
 }
+
+.timetable {
+  display: flex;
+  transition: opacity 0.5s ease-in;
+}
+
+
 
 @media only screen and (max-width: 680px) {
   .main {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .timetable {
+    flex-direction: column;
   }
 }

@@ -1,18 +1,12 @@
-import { ChangeEvent } from "react"
+import './input.css'
 
-
-interface InputProps {
-  type: string,
-  id: string,
-  name: string,
-  required?: boolean,
-  defaultValue?: string | number;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  
 }
 
-const Input: React.FC<InputProps> = ({type, id, name, required, defaultValue, onChange}) => {
+const Input: React.FC<InputProps> = (props) => {
   return (
-    <input type={type} id={id} name={name} required={required} defaultValue={defaultValue} onChange={onChange}/>
+    <input {...props}/>
   )
 }
 

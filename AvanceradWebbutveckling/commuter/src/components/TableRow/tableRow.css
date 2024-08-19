@@ -1,6 +1,9 @@
 .tableRow {
   display: flex;
-  background-color: rgb(70, 70, 70);
+  /* background-color: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(66, 79, 99, 0.8) 80%, rgb(55, 68, 78) 100%); */
+  background-color: rgba(37, 45, 54, 0.6);
+  font-weight: 600;
 }
 
 .interactive {
@@ -8,9 +11,11 @@
 }
 
 .interactive:hover {
-  background-color: rgb(120, 120, 120);
+  background-color: rgba(92, 110, 131, 0.6);
+  transition: transform 0.15s ease;
+  transform: scale(102%);
 }
 
 .active {
-  background-color: rgb(120, 120, 120);
+  background-color: rgba(92, 110, 131, 0.6);
 }
