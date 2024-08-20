@@ -1,4 +1,4 @@
 export interface FormState {
-    searchFrom: string,
-    searchTo: string
+  searchFrom: string;
+  searchTo: string;
 }

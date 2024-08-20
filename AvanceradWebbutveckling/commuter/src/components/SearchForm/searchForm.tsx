@@ -17,8 +17,6 @@ const SearchForm: React.FC<SearchFormProps> = ({setInputValue, inputValue, setSe
   const [activeInput, setActiveInput] = useState<string>('');
   const dropdownRef = useRef<HTMLUListElement>(null);
 
-  
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
