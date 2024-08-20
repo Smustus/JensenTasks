@@ -9,6 +9,7 @@ form {
 }
 
 fieldset {
+  position: relative;
   width: fit-content;
   min-width: 350px;
   margin: 6px;
@@ -36,4 +37,28 @@ legend {
 
 button {
   margin: 6px;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  background-color: rgba(37, 45, 54, 1);
+  z-index: 50;
+  padding: 8px;
+  border-radius: 6px;
+  width: 95%;
+  height: 200px;
+  list-style-type: none;
+  overflow: scroll;
+}
+
+.suggestions-dropdown li {
+  padding: 2px;
+}
+
+.suggestions-dropdown li:hover {
+  background-color: rgba(92, 110, 131, 0.6);
+  cursor: pointer;
+  border-radius: 2px;
 }

@@ -38,7 +38,7 @@ export async function fetchRoutePlanner(origin: string, destination: string){
 
 export async function fetchStop(input: string){
   try {
-    const response = await fetch(`https://api.resrobot.se/v2.1/location.name?input=${input}&format=json&accessId=${API_KEY}`);
+    const response = await fetch(`https://api.resrobot.se/v2.1/location.name?input=${input}&format=json&maxNo=100&accessId=${API_KEY}`);
     const data = await response?.json();
     
     return data.stopLocationOrCoordLocation;
