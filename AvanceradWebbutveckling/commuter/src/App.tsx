@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { getPosition, fetchNearby, fetchTimetable } from './utilities/fetch';
 import Tablecell from './components/TableCell/tableCell';
@@ -19,7 +19,7 @@ function App() {
   const [activeRow, setActivRow] = useState<number | null>(null);
   const [inputValue, setInputValue] = useState<FormState>({ searchFrom: '', searchTo: '' });
   const [searchResults, setSearchResults] = useState<any>();
-  const [route, setRoute] = useState<any>({});
+  const [route, setRoute] = useState<any>(null);
   const [activeSection, setActiveSection] = useState<'searchResults' | 'nearby' | null>(null);
   
   useEffect(() => {   
@@ -27,10 +27,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    /* console.log(inputValue);
-    console.log(selectedStation);
-    console.log(departures);
-    console.log(searchResults); */
+    console.log(inputValue);
+    /* console.log(selectedStation);
+    console.log(departures); */
+    console.log(searchResults);
     console.log(route);
   }, [inputValue, selectedStation, departures, searchResults, route]);
 
