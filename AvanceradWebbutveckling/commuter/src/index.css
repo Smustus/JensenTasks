@@ -47,22 +47,27 @@ body {
 h1 {
   font-size: clamp(1.8rem, 1.6rem + 1vw, 3rem);
   line-height: 1.1;
+  color: white;
 }
 
 h2 {
   font-size: clamp(1.6rem, 1.5rem + 1vw, 2.9rem);
+  color: white;
 }
 
 h3 {
   font-size: clamp(0.9rem, 0.6rem + 1vw, 1.2rem);
+  color: white;
 }
 
 h4 {
   font-size: clamp(0.8rem, 0.4rem + 1vw, 1rem);
+  color: white;
 }
 
 p {
   font-size: clamp(0.7rem, 0.3rem + 1vw, 0.9rem);
+  color: white;
 }
 
 button {
@@ -73,6 +78,7 @@ button {
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
+  color: white;
   transition: border-color 0.25s;
   /* background: rgb(177,161,161);
   background: linear-gradient(180deg, rgba(40, 45, 51, 0.4) 10%, rgba(48, 48, 70, 0.8) 50%, rgba(26, 33, 43, 0.5) 90%); */

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import LeafletMap from './components/LeafletMap/leafletMap';
 import { getPosition, fetchNearby, fetchTimetable } from './utilities/fetch';
 import Tablecell from './components/TableCell/tableCell';
 import TableBody from './components/TableBody/tableBody';
@@ -27,16 +28,16 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(inputValue);
-    /* console.log(selectedStation);
-    console.log(departures); */
-    console.log(searchResults);
-    console.log(route);
+    /* console.log(inputValue); */
+    console.log(selectedStation);
+    console.log(departures);
+    /* console.log(searchResults);
+    console.log(route); */
   }, [inputValue, selectedStation, departures, searchResults, route]);
 
   async function getNearby(){
     if(position){
-      const data = await fetchNearby(position.latitude, position.longitude);
+      const data = await fetchNearby(position.latitude, position.longitude, 10);
       console.log(data);
       setNearbyData(data);
       setActiveSection('nearby');
@@ -67,8 +68,10 @@ function App() {
       </Header>
 
       <SearchForm setInputValue={setInputValue} inputValue={inputValue} setActiveSection={setActiveSection} setSearchResults={setSearchResults} />
-      
+    
       <button onClick={getNearby}>Hitta närliggande</button>
+
+      <LeafletMap position={position} />
 
       <main className='main'>
         <section className='timetable'>

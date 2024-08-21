@@ -1,7 +1,7 @@
 import { API_KEY } from "./secrets";
 
-export async function fetchNearby(lat: string | number, long: string | number){
-  const response = await fetch(`https://api.resrobot.se/v2.1/location.nearbystops?originCoordLat=${lat}&originCoordLong=${long}&format=json&accessId=${API_KEY}`
+export async function fetchNearby(lat: string | number, long: string | number, maxNo: number, r: number){
+  const response = await fetch(`https://api.resrobot.se/v2.1/location.nearbystops?originCoordLat=${lat}&originCoordLong=${long}&format=json&maxNo=${maxNo}&r=${r}&accessId=${API_KEY}`
   );
   const data = await response.json();
   
