@@ -37,6 +37,8 @@ const LeafletMap = ({position}: LeafletMapProps) => {
           if (!map) return;
           const marker = L.marker([obj?.StopLocation.lat, obj?.StopLocation.lon]).addTo(map);
           marker.bindPopup(obj?.StopLocation.name).openPopup();
+
+          
         })
       }
       getAll()
