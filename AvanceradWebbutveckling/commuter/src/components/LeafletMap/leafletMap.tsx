@@ -27,11 +27,17 @@ const LeafletMap = ({position}: LeafletMapProps) => {
   }, [position]);
 
   useEffect(() => {
-    if(map && position?.latitude && position.longitude){
+    if(map && position?.latitude && position?.longitude){
       async function getAll(){
-        const data = await fetchNearby(position.latitude, position.longitude, 1000, 10000);
+        const data = await fetchNearby(position.latitude, position.longitude, 200, 2000);
 
-        data.forEach((obj: StopData) => L.marker([obj?.StopLocation.lat, obj?.StopLocation.lon]).addTo(map));
+        data.forEach((obj: StopData) => {
+          console.log(obj);
+          
+          if (!map) return;
+          const marker = L.marker([obj?.StopLocation.lat, obj?.StopLocation.lon]).addTo(map);
+          marker.bindPopup(obj?.StopLocation.name).openPopup();
+        })
       }
       getAll()
     }
