@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './searchForm.css'
 import Input from '../Input/input'
-import Label from '../Label/label'
 import { FormState } from '../../interfaces/interfaces'
 import { fetchRoutePlanner, fetchStop} from '../../utilities/fetch'
 
@@ -9,7 +8,7 @@ interface SearchFormProps {
   setInputValue: React.Dispatch<React.SetStateAction<FormState>>,
   inputValue: any,
   setSearchResults: React.Dispatch<React.SetStateAction<FormState>>,
-  setActiveSection: React.Dispatch<React.SetStateAction<'searchResults' | 'nearby' | null>>,
+  setActiveSection: React.Dispatch<React.SetStateAction<'searchResults' | 'nearby' | 'map' | null>>,
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({setInputValue, inputValue, setSearchResults, setActiveSection}) => {

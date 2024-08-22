@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './leafletMap.css'
 import L, { LayerGroup, Map } from 'leaflet';
-import { fetchNearby } from '../../utilities/fetch';
+import { fetchNearby, fetchTimetable } from '../../utilities/fetch';
 import { StopLocation } from '../../interfaces/interfaces';
 
 interface LeafletMapProps {
-  position: GeolocationCoordinates | undefined
+  position: GeolocationCoordinates | undefined;
+  setSelectedStation: any;
+  setActiveSection: any;
+  setDepartures: any;
 }
 
 interface StopData {
@@ -13,7 +16,7 @@ interface StopData {
 }
 
 
-const LeafletMap = ({position}: LeafletMapProps) => {
+const LeafletMap = ({position, setSelectedStation, setActiveSection, setDepartures}: LeafletMapProps) => {
 
   const [map, setMap] = useState<Map>();
 
@@ -29,21 +32,33 @@ const LeafletMap = ({position}: LeafletMapProps) => {
   useEffect(() => {
     if(map && position?.latitude && position?.longitude){
       async function getAll(){
-        const data = await fetchNearby(position.latitude, position.longitude, 200, 2000);
 
-        data.forEach((obj: StopData) => {
-          console.log(obj);
-          
-          if (!map) return;
-          const marker = L.marker([obj?.StopLocation.lat, obj?.StopLocation.lon]).addTo(map);
-          marker.bindPopup(obj?.StopLocation.name).openPopup();
+        if(position?.latitude && position?.longitude){
+          const data = await fetchNearby(position.latitude, position.longitude, 500, 5000);
 
-          
-        })
+          data.forEach((obj: StopData) => {            
+            if (!map) return;
+            const marker = L.marker([obj?.StopLocation.lat, obj?.StopLocation.lon]).addTo(map);
+            marker.bindPopup(obj?.StopLocation.name).openPopup();
+            marker.addEventListener('click', () => {
+              getTimeTable(obj.StopLocation.extId);
+            });
+          })
+        }
       }
       getAll()
     }
   }, [map]);
+
+  async function getTimeTable(id: string){
+    const data = await fetchTimetable(id);
+    console.log(data);
+    if(data){
+      setDepartures(data.departuresData);
+    }
+    setSelectedStation(id);
+    setActiveSection('map');
+  }
 
   useEffect(() => {
     if(map){

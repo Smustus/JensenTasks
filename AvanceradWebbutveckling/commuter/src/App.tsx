@@ -21,7 +21,7 @@ function App() {
   const [inputValue, setInputValue] = useState<FormState>({ searchFrom: '', searchTo: '' });
   const [searchResults, setSearchResults] = useState<any>();
   const [route, setRoute] = useState<any>(null);
-  const [activeSection, setActiveSection] = useState<'searchResults' | 'nearby' | null>(null);
+  const [activeSection, setActiveSection] = useState<'searchResults' | 'nearby' | 'map' | null>(null);
   
   useEffect(() => {   
     getPosition(setPosition);
@@ -31,8 +31,8 @@ function App() {
     /* console.log(inputValue); */
     console.log(selectedStation);
     console.log(departures);
-    /* console.log(searchResults);
-    console.log(route); */
+    /* console.log(searchResults); */
+    console.log(route);
   }, [inputValue, selectedStation, departures, searchResults, route]);
 
   async function getNearby(){
@@ -71,7 +71,7 @@ function App() {
     
       <button onClick={getNearby}>Hitta närliggande</button>
 
-      <LeafletMap position={position} />
+      <LeafletMap position={position} setSelectedStation={setSelectedStation} setActiveSection={setActiveSection} setDepartures={setDepartures} />
 
       <main className='main'>
         <section className='timetable'>
@@ -149,10 +149,10 @@ function App() {
           )
         }
         {
-          activeSection === 'nearby' &&selectedStation && (
+          activeSection === 'nearby'  && selectedStation && (
             <TableBody>
               <TableHead>
-                <TableHeader>Avgångstid</TableHeader>
+                <TableHeader>Avgångstidx</TableHeader>
                 <TableHeader>Fordon</TableHeader>
                 <TableHeader>Slutstation</TableHeader>
               </TableHead>
@@ -173,6 +173,52 @@ function App() {
             </TableBody>
           )
         }
+
+        {
+          activeSection === 'map' && selectedStation && departures && (
+            <TableBody>
+              <TableHead>
+                <TableHeader>Tidx</TableHeader>
+                <TableHeader>Fordon</TableHeader>
+                <TableHeader>Slutstation</TableHeader>
+              </TableHead>
+              {
+                departures.map((obj, index) => {
+                  return (
+                    <TableRow key={index} onClick={() => {
+                      setTrip(obj, index)}} 
+                      interactive={false}       
+                      active={activeRow === index ? true : false}>
+                      <Tablecell>{`${obj.time}`}</Tablecell>
+                      <Tablecell>{`${obj.name}`}</Tablecell>
+                      <Tablecell>{obj.direction}</Tablecell>
+                    </TableRow>)
+                })
+              }
+            </TableBody>
+          )
+        }
+        {/* {
+          activeSection === 'map' && route && (
+            <TableBody>
+              <TableHead>
+                <TableHeader>Tid</TableHeader>
+                <TableHeader>Hållplats</TableHeader>
+              </TableHead>
+              {
+                route.map((obj: any, index: number) => {
+                  return (
+                    <TableRow key={index}>
+                      <Tablecell>{`${obj.depTime ? obj.depTime : obj.arrTime}`}</Tablecell>
+                      <Tablecell>{`${obj.name}`}</Tablecell>
+                    </TableRow>
+                  )
+                }) 
+              }
+            </TableBody>
+          )
+        } */}
+
         </section>
       </main>
     </>
