@@ -37,7 +37,7 @@ function App() {
 
   async function getNearby(){
     if(position){
-      const data = await fetchNearby(position.latitude, position.longitude, 10);
+      const data = await fetchNearby(position.latitude, position.longitude, 10, 1000);
       console.log(data);
       setNearbyData(data);
       setActiveSection('nearby');
